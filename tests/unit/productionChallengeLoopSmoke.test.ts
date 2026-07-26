@@ -398,6 +398,32 @@ describe("production challenge-loop smoke", () => {
     expect(sessionMutations.some((request) => request.headers.get("x-cmai-csrf") === "csrf-poster")).toBe(true);
     expect(sessionMutations.some((request) => request.headers.get("x-cmai-csrf") === "csrf-contributor")).toBe(true);
     expect(sessionMutations.every((request) => request.headers.get("origin") === "https://challenge.example")).toBe(true);
+
+    const createChallengeRequest = requests.find((request) => request.url.pathname === "/api/challenges" && request.method === "POST");
+    expect(createChallengeRequest?.body).toBeTypeOf("string");
+    expect(JSON.parse(String(createChallengeRequest?.body))).toMatchObject({
+      brief: {
+        challenge_semantics_version: "1.0",
+        challenge_intent: "pressure_test",
+        criteria_status: "confirmed",
+        criteria_version: 1,
+        successful_outcomes: ["review_complete"],
+        criteria_history: [{
+          version: 1,
+          intent: "pressure_test",
+          status: "confirmed",
+          successful_outcomes: ["review_complete"],
+        }],
+        reward_posture: {
+          basis: "poster_confirmed_impact",
+          funding_state: "declarative_only",
+          completion_bonus: "not_applicable",
+        },
+      },
+      criteriaAcknowledgement: {
+        briefHash: expect.stringMatching(/^[a-f0-9]{64}$/),
+      },
+    });
     expect(stdout.join("\n")).not.toMatch(/csrf-poster|csrf-contributor|cmai_user|DATABASE_URL|RAILWAY_API_TOKEN|OPENROUTER_API_KEY|ANTHROPIC_API_KEY|SUPABASE_SERVICE_ROLE_KEY|sk-/i);
   });
 

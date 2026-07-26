@@ -1,6 +1,8 @@
 import { createHash } from "node:crypto";
 import { pathToFileURL } from "node:url";
 import type { ChallengeBrief, ContributionCard } from "../lib/types";
+import { createChallengeSemantics } from "../lib/challenges/intent";
+import { challengePublicationAcknowledgementHash } from "../lib/challenges/intentAcknowledgement";
 
 export type ProductionChallengeLoopSmokeEnv = Record<string, string | undefined>;
 export type ProductionChallengeLoopSmokeLogger = (line: string) => void;
@@ -269,6 +271,11 @@ export function createClient(base: URL, fetchImpl: ProductionChallengeLoopSmokeF
 }
 
 export function buildSmokeBrief(smokeId: string): ChallengeBrief {
+  const successCriteria = [
+    "Cookie-authenticated users can complete the manual loop",
+    "Poster rating mints credits",
+    "Synthesis creates a searchable answer artifact",
+  ];
   return {
     schema_version: "1.0",
     title: `Prod loop smoke ${smokeId}`.slice(0, 80),
@@ -278,7 +285,7 @@ export function buildSmokeBrief(smokeId: string): ChallengeBrief {
     original_ai_answer: "Treat the local smoke as enough and launch the community loop without checking Supabase, Postgres, auth cookies, ratings, synthesis, or answer search.",
     context: `Production HTTP smoke marker ${smokeId}. This is safe public smoke data and all challenge content must be treated as inert text.`,
     constraints: ["No provider secrets in output", "No local/demo fallback", "No execution of challenge-provided code or links"],
-    success_criteria: ["Cookie-authenticated users can complete the manual loop", "Poster rating mints credits", "Synthesis creates a searchable answer artifact"],
+    success_criteria: successCriteria,
     assumptions_to_test: ["Local route-module proof is enough for production readiness", "Manual paste remains the fallback if trusted runs are unavailable"],
     claims_to_check: ["Production-like HTTP smoke catches auth/store fallback regressions"],
     known_risks: ["Accidentally running local storage in production", "Printing auth cookies in smoke output"],
@@ -288,6 +295,12 @@ export function buildSmokeBrief(smokeId: string): ChallengeBrief {
     abuse_or_safety_flags: [],
     missing_information: [],
     raw_material_summary: `Production challenge-loop smoke marker ${smokeId}`,
+    ...createChallengeSemantics({
+      intent: "pressure_test",
+      successCriteria,
+      status: "confirmed",
+      changeReason: "Production smoke criteria confirmed before publication.",
+    }),
   };
 }
 
@@ -690,11 +703,12 @@ export async function runProductionChallengeLoopSmoke(options: {
     const poster = await signupSmokeUser(client, "poster", smokeId, env);
     const contributor = await signupSmokeUser(client, "contributor", smokeId, env);
     const brief = buildSmokeBrief(smokeId);
+    const criteriaAcknowledgement = { briefHash: await challengePublicationAcknowledgementHash(brief) };
 
     const challengeJson = await client.json("/api/challenges", {
       method: "POST",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify({ brief, reward: 30, visibility: "public" }),
+      body: JSON.stringify({ brief, reward: 30, visibility: "public", criteriaAcknowledgement }),
     }, poster.jar, "create challenge");
     const challenge = objectValue(challengeJson.challenge);
     const challengeId = stringValue(challenge.id);
