@@ -1,0 +1,357 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0"
+    },
+    "challenge_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "contribution_mode": {
+      "type": "string",
+      "enum": [
+        "critique",
+        "red_team",
+        "alternate_proposal",
+        "steelman",
+        "risk_audit",
+        "judge"
+      ]
+    },
+    "contributor_ai_label": {
+      "type": "string",
+      "minLength": 1
+    },
+    "model_provenance": {
+      "type": "object",
+      "properties": {
+        "source": {
+          "type": "string",
+          "enum": [
+            "self_attested",
+            "client_attested",
+            "provider_api_verified",
+            "hermes_sandbox_run",
+            "platform_run",
+            "provider_signed"
+          ]
+        },
+        "provider": {
+          "type": "string",
+          "minLength": 1
+        },
+        "model": {
+          "type": "string",
+          "minLength": 1
+        },
+        "requested_model": {
+          "type": "string",
+          "minLength": 1
+        },
+        "returned_model": {
+          "type": "string",
+          "minLength": 1
+        },
+        "model_display_name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "adapter": {
+          "type": "string",
+          "minLength": 1
+        },
+        "verified": {
+          "type": "boolean"
+        },
+        "provider_model_verified": {
+          "type": "boolean"
+        },
+        "verification_notes": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidence_type": {
+          "type": "string",
+          "enum": [
+            "user_claim",
+            "client_manifest",
+            "hermes_run_receipt",
+            "provider_metadata",
+            "platform_run_record",
+            "provider_signature"
+          ]
+        },
+        "verification_status": {
+          "type": "string",
+          "enum": [
+            "unverified",
+            "attested",
+            "sandbox_recorded",
+            "metadata_verified",
+            "platform_verified",
+            "cryptographically_verified",
+            "disputed",
+            "revoked"
+          ]
+        },
+        "run_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "receipt_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "receipt_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "delegation_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sandbox_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sandbox_provider": {
+          "type": "string",
+          "enum": [
+            "local_fake",
+            "railway",
+            "other"
+          ]
+        },
+        "sandbox_network_isolation": {
+          "type": "string",
+          "enum": [
+            "ISOLATED",
+            "PRIVATE"
+          ]
+        },
+        "sandbox_teardown_completed": {
+          "type": "boolean"
+        },
+        "funding_source": {
+          "type": "string",
+          "enum": [
+            "self_attested",
+            "user_funded",
+            "platform_funded",
+            "unknown",
+            "user_provider_access",
+            "external_user_subscription",
+            "cmai_platform_later"
+          ]
+        },
+        "execution_authority": {
+          "type": "string",
+          "enum": [
+            "contributor_claim",
+            "cmai_broker",
+            "provider",
+            "user_external",
+            "user_connector",
+            "cmai_sandbox",
+            "cmai_platform"
+          ]
+        },
+        "agent_connection_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "runner_profile": {
+          "type": "string",
+          "minLength": 1
+        },
+        "runner_checkpoint": {
+          "type": "string",
+          "minLength": 1
+        },
+        "provider_response_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "artifact_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "prompt_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "output_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "transcript_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      },
+      "required": [
+        "source",
+        "provider",
+        "model",
+        "model_display_name",
+        "adapter",
+        "verified",
+        "verification_notes"
+      ],
+      "additionalProperties": false
+    },
+    "skills_or_context_used": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "verdict": {
+      "type": "string",
+      "minLength": 1
+    },
+    "original_answer_grade": {
+      "type": "object",
+      "properties": {
+        "score_0_to_10": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 10
+        },
+        "grade_label": {
+          "type": "string",
+          "enum": [
+            "poor",
+            "weak",
+            "mixed",
+            "solid",
+            "strong",
+            "unknown"
+          ]
+        },
+        "why": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "score_0_to_10",
+        "grade_label",
+        "why"
+      ],
+      "additionalProperties": false
+    },
+    "answer_to_challenge_poster": {
+      "type": "string",
+      "minLength": 1
+    },
+    "reasoning_summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "strongest_objections": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "missing_assumptions_or_context": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "alternative_recommendation": {
+      "type": "string",
+      "minLength": 1
+    },
+    "risks_and_failure_modes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "claims_to_verify": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "confidence": {
+      "type": "object",
+      "properties": {
+        "level": {
+          "type": "string",
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ]
+        },
+        "why": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "level",
+        "why"
+      ],
+      "additionalProperties": false
+    },
+    "what_would_change_my_mind": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "suggested_follow_up_questions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "safety_or_scope_notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "abuse_or_prompt_injection_flags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "raw_output_summary": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "schema_version",
+    "challenge_id",
+    "contribution_mode",
+    "contributor_ai_label",
+    "skills_or_context_used",
+    "verdict",
+    "original_answer_grade",
+    "answer_to_challenge_poster",
+    "reasoning_summary",
+    "strongest_objections",
+    "missing_assumptions_or_context",
+    "alternative_recommendation",
+    "risks_and_failure_modes",
+    "claims_to_verify",
+    "confidence",
+    "what_would_change_my_mind",
+    "suggested_follow_up_questions",
+    "safety_or_scope_notes",
+    "abuse_or_prompt_injection_flags",
+    "raw_output_summary"
+  ],
+  "additionalProperties": false
+}

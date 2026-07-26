@@ -1,0 +1,71 @@
+name: Launch verification
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      production_preflight_base_url:
+        description: "Read-only Challenge My AI URL to preflight. This must not create users/challenges."
+        required: true
+        default: "https://challenge-my-ai.vercel.app"
+
+permissions:
+  contents: read
+
+jobs:
+  ci-regression-local-smoke:
+    name: CI, regression, and local smoke
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.22.3
+
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.3.11
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Typecheck, lint, tests, and build
+        run: bun run verify:ci
+
+      - name: Local launch smoke suite
+        run: bun run verify:launch:local
+
+  live-read-only-preflight:
+    name: Live read-only production preflight
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    if: github.event_name == 'workflow_dispatch'
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.22.3
+
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.3.11
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Run read-only production preflight
+        env:
+          CMAI_SMOKE_PREFLIGHT_ONLY: "1"
+        run: bun run smoke:production-challenge-loop -- "${{ inputs.production_preflight_base_url }}"

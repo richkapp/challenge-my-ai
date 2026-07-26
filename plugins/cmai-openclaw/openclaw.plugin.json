@@ -1,0 +1,51 @@
+{
+  "id": "cmai-openclaw",
+  "name": "Challenge My AI",
+  "description": "Pairs OpenClaw with Challenge My AI for explicit, previewed contributions.",
+  "version": "0.1.0",
+  "activation": {
+    "onStartup": true
+  },
+  "commandAliases": [
+    {
+      "name": "cmai",
+      "kind": "runtime-slash"
+    }
+  ],
+  "contracts": {
+    "tools": ["cmai"]
+  },
+  "toolMetadata": {
+    "cmai": {
+      "optional": true,
+      "replaySafe": false
+    }
+  },
+  "skills": ["./skills/cmai-contribution"],
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "baseUrl": {
+        "type": "string",
+        "description": "Challenge My AI origin. HTTPS is required except for loopback development."
+      },
+      "displayName": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 80,
+        "description": "Local device label shown during pairing."
+      }
+    }
+  },
+  "uiHints": {
+    "baseUrl": {
+      "label": "Challenge My AI URL",
+      "placeholder": "https://challenge-my-ai.vercel.app"
+    },
+    "displayName": {
+      "label": "Paired Agent label",
+      "placeholder": "OpenClaw Agent"
+    }
+  }
+}

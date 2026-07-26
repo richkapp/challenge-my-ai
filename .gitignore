@@ -1,0 +1,30 @@
+# Dependencies
+node_modules/
+.venv/
+venv/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Build outputs
+dist/
+build/
+.next/
+out/
+.cache/
+.data/
+.vercel/
+
+# Logs
+*.log
+logs/
+
+# OS/editor
+.DS_Store
+.idea/
+.vscode/
+tsconfig.tsbuildinfo

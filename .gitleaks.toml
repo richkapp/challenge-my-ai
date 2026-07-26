@@ -1,0 +1,9 @@
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Exact fake secret-exposure fixtures used by safety tests"
+regexTarget = "match"
+regexes = [
+  '''api_key=abcdef123456'''
+]

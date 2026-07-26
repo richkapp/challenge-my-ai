@@ -1,0 +1,46 @@
+{
+  "name": "@challenge-my-ai/openclaw-adapter",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "files": [
+    "dist/",
+    "openclaw.plugin.json",
+    "skills/",
+    "README.md"
+  ],
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "cd ../.. && vitest run --no-cache packages/cmai-openclaw-adapter/src/*.test.ts",
+    "build:local": "bun scripts/stage-local.ts"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "openclaw": ">=2026.7.1 <2026.8.0"
+  },
+  "devDependencies": {
+    "openclaw": "2026.7.1",
+    "typebox": "1.1.39",
+    "typescript": "6.0.3"
+  },
+  "engines": {
+    "node": ">=22.22.3 <23 || >=24.15.0 <25 || >=25.9.0"
+  },
+  "openclaw": {
+    "extensions": [
+      "./dist/index.js"
+    ],
+    "compat": {
+      "pluginApi": ">=2026.7.1 <2026.8.0",
+      "minGatewayVersion": "2026.7.1"
+    },
+    "build": {
+      "openclawVersion": "2026.7.1",
+      "pluginSdkVersion": "2026.7.1"
+    }
+  }
+}

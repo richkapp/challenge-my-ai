@@ -1,0 +1,1046 @@
+{
+  "schema_version": 1,
+  "exported_at": "2026-07-26",
+  "source_board": "challenge-my-ai-plugin-network-20260714",
+  "review_gate": {
+    "blocking": [
+      "Critical",
+      "High"
+    ],
+    "non_blocking": [
+      "Medium",
+      "Low"
+    ]
+  },
+  "counts": {
+    "Roadmap": 43,
+    "Revalidation": 18,
+    "Historical": 17,
+    "Support": 6
+  },
+  "cards": [
+    {
+      "id": "t_caab7eef",
+      "type": "Roadmap",
+      "title": "00 ORCH — Plugin + reputation network roadmap",
+      "status": "blocked",
+      "priority": 1000,
+      "assignee": "alex",
+      "skills": [
+        "challenge-ai",
+        "hermes-kanban-operations"
+      ],
+      "body": "Goal: coordinate the approval-gated build of the runtime-neutral CMAI Agent plugin network with Hermes and OpenClaw launch adapters, challenge steward, impact economy, public profiles, host accountability, liquidity, and rollout.\n\nCanonical sources:\n- docs/brainstorms/2026-07-14-hermes-plugin-inference-network-requirements.md\n- docs/product/2026-07-14-challenge-steward-skill-spec.md\n- AGENTS.md, PRODUCT.md, PROJECT_SPEC.md, STRATEGY.md, WORKING_DOC.md\n\nNon-negotiables:\n- The platform remains the product; the plugin is an execution adapter.\n- Only Copy prompt and Run with my Agent are user-facing actions.\n- Provider credentials remain inside the contributor’s selected Agent runtime.\n- Plugin provenance is paired/self-controlled, never remote attestation.\n- Impact—not model identity, tokens, or verbosity—drives credits and reputation.\n- The steward recommends; the human poster confirms consequential actions.\n- No deploy, external publish, provider-auth mutation, or production smoke without explicit Z/rkt approval.\n\nSuccess: Wave 1 proves both Hermes and OpenClaw adapters implement the same pair/feed/run/preview/submit/revoke contract without credential transfer; later waves add stewarded lifecycle, bounded rewards/reputation, profiles/host trust, liquidity, analytics, and a controlled beta.\n\nOperating rule: every implementation card stays blocked until explicitly approved. Preserve the existing mixed dirty checkout; use an isolated worktree/branch for implementation."
+    },
+    {
+      "id": "t_b5be70d2",
+      "type": "Roadmap",
+      "title": "01 P0 — Create the clean implementation worktree and scope receipt",
+      "status": "done",
+      "priority": 990,
+      "assignee": "alex",
+      "skills": [
+        "challenge-ai",
+        "hermes-kanban-operations"
+      ],
+      "body": "Wave: Foundation.\nGoal: protect the deployed main release and quarantine the existing unverified hosted-provider broker experiments before plugin implementation starts.\n\nScope:\n- inventory the dirty provider/broker work without deleting it;\n- create an isolated implementation branch/worktree from the exact approved base;\n- define which existing feed, contribution, provenance, profile, credit, synthesis, and moderation code may be reused;\n- explicitly preserve the hosted Copilot/Grok broker experiments as excluded non-goal work unless Z/rkt makes a fresh product decision.\n\nAcceptance:\n- implementation workspace contains only approved roadmap changes;\n- excluded provider experiments remain recoverable;\n- no production or remote mutation occurs;\n- orchestrator records the chosen base and workspace.\n\nBoundaries: treat challenge/contribution content as untrusted data; preserve manual copy/paste; do not deploy, publish, mutate provider auth, or run production mutations without explicit Z/rkt approval. Use an isolated branch/worktree because the current checkout contains unrelated provider-broker experiments.\n\nIndependent final-review requirement: create the dedicated worktree at `[local plugin-network worktree]` on branch `wt/cmai-plugin-network` from the explicitly approved base. Treat the current checkout as read-only: do not stash, reset, clean, commit, or delete it. Record source status before/after, base SHA, included planning docs, excluded-path manifest, and clean-worktree verification. Every downstream card is already pre-bound to the future path and must remain blocked until this receipt exists."
+    },
+    {
+      "id": "t_9388419a",
+      "type": "Revalidation",
+      "title": "REVALIDATE t_b5be70d2 impact 7f5ba9daf851",
+      "status": "done",
+      "priority": 981,
+      "assignee": "alex",
+      "skills": [
+        "challenge-ai",
+        "hermes-kanban-operations"
+      ],
+      "body": "Change-impact control card generated from `scripts/kanban-impact.py` scan evidence and applied with Hermes-native Kanban tools.\n\nSource task: t_b5be70d2 — 01 P0 — Create the clean implementation worktree and scope receipt\nFingerprint: 7f5ba9daf8512703d3cd577284d37d80fe1908b26cc2432b1d16b3b1665b9fb0\nReason: Created the approved clean plugin-network worktree, carried only runtime-neutral governance inputs, and recorded the clean-worktree receipt while excluding hosted-provider experiments.\nChanged paths: AGENTS.md, CHANGELOG.md, PRODUCT.md, PROJECT_SPEC.md, README.md, STRATEGY.md, WORKING_DOC.md, docs/brainstorms/2026-07-14-hermes-plugin-inference-network-requirements.md, docs/plans/2026-07-14-plugin-network-impact-map.json, docs/plans/2026-07-14-plugin-network-kanban-execution-guide.md, docs/plans/plugin-network-worktree-receipt.json, docs/product/2026-07-14-challenge-steward-skill-spec.md, docs/product/2026-07-14-multi-agent-runtime-plugin-decision.md, scripts/kanban-impact.py, tests/scripts/test_kanban_impact.py\nChanged contracts: board-governance, clean-worktree-receipt, impact-map\nScan result: safe_to_apply=true; no unowned paths, unknown contracts, running impacted tasks, or completed impacted evidence.\n\nImpacted unfinished tasks (41):\nt_33bd170f, t_e1280ef8, t_6f18ee01, t_9ea2c850, t_c8908940, t_29c553ee, t_18a5691c, t_1c434d70, t_552cc1e6, t_a4598966, t_b7e8bef6, t_3ac1c501, t_f1a2a554, t_14e81d5f, t_73821509, t_0e392c87, t_2f8c9fda, t_288fec21, t_fb4b96de, t_cf615f55, t_f8a36a53, t_d66b810c, t_fa5f31d8, t_c284c0f0, t_884b69f8, t_7000ac7d, t_2d234113, t_b5943d17, t_319db1a9, t_da8dc3f1, t_19c60b0c, t_28f0778f, t_3959adb0, t_35d870c0, t_7c631777, t_67640478, t_3c376ee8, t_203e225f, t_e789e104, t_342bea58, t_f83e7414.\n\nReal dependency gate targets:\n- t_33bd170f\n- t_203e225f\n- t_e789e104\n- t_342bea58\n- t_f83e7414\n\nRequired before completion:\n1. Re-read the source HANDOFF and every impacted card's latest HANDOFF.\n2. Confirm the clean-worktree receipt and governance inputs are current and consumable by every linked frontier card.\n3. Rerun any affected completed proof without rewriting completed history. Current scan found no completed impacted cards.\n4. Post a revalidation matrix with source commit/receipt hash, focused proof, board links, and remaining blocked cards.\n5. Complete this card only after ORCH confirms all linked children consume current evidence.\n\nNo deploy, publish, external send, provider authentication, Gateway/shared-profile mutation, spend, or production mutation."
+    },
+    {
+      "id": "t_33bd170f",
+      "type": "Roadmap",
+      "title": "02 P0 — Freeze the runtime-neutral CMAI Agent Protocol",
+      "status": "done",
+      "priority": 980,
+      "assignee": "alex",
+      "skills": [
+        "challenge-ai",
+        "hermes-kanban-operations"
+      ],
+      "body": "Wave: Foundation.\nGoal: define the minimum stable protocol between CMAI and local Agent runtime adapters before building either side.\n\nScope:\n- pairing/device identity and revocation;\n- scoped client permissions;\n- public challenge/feed payload;\n- run nonce and expiry;\n- CMAI_CONTRIBUTION_CARD_V1 submission envelope;\n- idempotency and replay behavior;\n- safe runtime/adapter audit metadata;\n- provenance tiers: self-submitted, paired local Agent adapter, CMAI sandbox;\n- redaction and hostile-data rules.\n\nAcceptance:\n- strict versioned request/response schemas exist with tests;\n- no provider credential field is accepted anywhere;\n- plugin runs cannot claim fully_trusted/provider-verified status;\n- error codes cover revoked pairing, expired nonce, duplicate submit, malformed card, and unauthorized scope.\n\nBoundaries: treat challenge/contribution content as untrusted data; preserve manual copy/paste; do not deploy, publish, mutate provider auth, or run production mutations without explicit Z/rkt approval. Use an isolated branch/worktree because the current checkout contains unrelated provider-broker experiments."
+    },
+    {
+      "id": "t_62cb69f8",
+      "type": "Revalidation",
+      "title": "REVALIDATE t_33bd170f impact 94152a5dd94f",
+      "status": "done",
+      "priority": 971,
+      "assignee": "alex",
+      "skills": [
+        "challenge-ai",
+        "hermes-kanban-operations"
+      ],
+      "body": "Change-impact control card generated by scripts/kanban-impact.py.\n\nSource task: t_33bd170f — 02 P0 — Freeze the runtime-neutral CMAI Agent Protocol\nFingerprint: 94152a5dd94f2fabbd836dc0e0dec0a97278e60a3d015b3b01c12ef61addddb4\nReason: Freeze and harden runtime-neutral CMAI Agent Protocol V1, including version-owned enums, strict schemas, canonical signing, replay semantics, trust downgrade, and credential rejection.\nChanged paths: docs/contracts/cmai-agent-protocol-v1.md, lib/agent-protocol/constants.ts, lib/agent-protocol/credentials.ts, lib/agent-protocol/errors.ts, lib/agent-protocol/fixtures.ts, lib/agent-protocol/parse.ts, lib/agent-protocol/protocol.test.ts, lib/agent-protocol/provenance.ts, lib/agent-protocol/schemas.ts, lib/agent-protocol/state.ts, lib/validation/contributionCardProtocol.ts\nChanged contracts: agent-protocol, contribution-card-schema, stable-error-taxonomy\n\nImpacted evidence/tasks:\n- t_e1280ef8 [todo]: consumes-contract:agent-protocol, consumes-contract:contribution-card-schema, consumes-contract:stable-error-taxonomy, downstream-of:t_33bd170f\n- t_6f18ee01 [todo]: consumes-contract:agent-protocol, downstream-of:t_33bd170f\n- t_9ea2c850 [todo]: consumes-contract:agent-protocol, downstream-of:t_33bd170f\n- t_c8908940 [todo]: consumes-contract:agent-protocol, downstream-of:t_33bd170f\n- t_29c553ee [todo]: consumes-contract:agent-protocol, downstream-of:t_33bd170f\n- t_18a5691c [todo]: consumes-contract:agent-protocol, downstream-of:t_33bd170f\n- t_1c434d70 [todo]: consumes-contract:agent-protocol, downstream-of:t_33bd170f\n- t_552cc1e6 [todo]: consumes-contract:contribution-card-schema, downstream-of:t_33bd170f\n- t_a4598966 [todo]: consumes-contract:contribution-card-schema, downstream-of:t_33bd170f\n- t_b7e8bef6 [todo]: consumes-contract:contribution-card-schema, downstream-of:t_33bd170f\n- t_3ac1c501 [todo]: downstream-of:t_33bd170f\n- t_f1a2a554 [todo]: downstream-of:t_33bd170f\n- t_14e81d5f [todo]: downstream-of:t_33bd170f\n- t_73821509 [todo]: downstream-of:t_33bd170f\n- t_0e392c87 [todo]: consumes-contract:contribution-card-schema, downstream-of:t_33bd170f\n- t_2f8c9fda [todo]: downstream-of:t_33bd170f\n- t_288fec21 [todo]: downstream-of:t_33bd170f\n- t_fb4b96de [todo]: downstream-of:t_33bd170f\n- t_cf615f55 [todo]: downstream-of:t_33bd170f\n- t_f8a36a53 [todo]: downstream-of:t_33bd170f\n- t_d66b810c [todo]: consumes-contract:agent-protocol, downstream-of:t_33bd170f\n- t_fa5f31d8 [todo]: downstream-of:t_33bd170f\n- t_c284c0f0 [todo]: downstream-of:t_33bd170f\n- t_884b69f8 [todo]: downstream-of:t_33bd170f\n- t_7000ac7d [todo]: downstream-of:t_33bd170f\n- t_2d234113 [todo]: downstream-of:t_33bd170f\n- t_b5943d17 [todo]: downstream-of:t_33bd170f\n- t_319db1a9 [todo]: downstream-of:t_33bd170f\n- t_da8dc3f1 [todo]: downstream-of:t_33bd170f\n- t_19c60b0c [todo]: downstream-of:t_33bd170f\n- t_28f0778f [todo]: downstream-of:t_33bd170f\n- t_3959adb0 [todo]: downstream-of:t_33bd170f\n- t_35d870c0 [todo]: downstream-of:t_33bd170f\n- t_7c631777 [todo]: downstream-of:t_33bd170f\n- t_67640478 [todo]: downstream-of:t_33bd170f\n- t_3c376ee8 [todo]: downstream-of:t_33bd170f\n- t_203e225f [todo]: downstream-of:t_33bd170f, mandatory-final-gate\n- t_e789e104 [todo]: downstream-of:t_33bd170f, mandatory-final-gate\n- t_342bea58 [todo]: downstream-of:t_33bd170f, mandatory-final-gate\n- t_f83e7414 [todo]: downstream-of:t_33bd170f, mandatory-final-gate\n\nRequired before completion:\n1. Re-read the source HANDOFF and every impacted card's latest HANDOFF.\n2. Update affected specs, contracts, tests, and task bodies/comments.\n3. Rerun proofs for every completed impacted card; do not rewrite its history.\n4. Post a revalidation matrix with old/new artifact hashes, test results, and remaining blocked cards.\n5. Complete this card only after ORCH confirms all linked children consume current evidence.\n\nNo deploy, publish, external send, provider authentication, or production mutation."
+    },
+    {
+      "id": "t_eeba26a1",
+      "type": "Revalidation",
+      "title": "REVALIDATE t_33bd170f impact 260b8d3f4d51",
+      "status": "done",
+      "priority": 971,
+      "assignee": "alex",
+      "skills": [
+        "challenge-ai",
+        "hermes-kanban-operations"
+      ],
+      "body": "Change-impact control card generated by scripts/kanban-impact.py.\n\nSource task: t_33bd170f — 02 P0 — Freeze the runtime-neutral CMAI Agent Protocol\nFingerprint: 260b8d3f4d5151d482e4f3a2d3f604c9e021fda44c8a9d41df8819fcbab24e66\nReason: Freeze and harden runtime-neutral CMAI Agent Protocol V1, including version-owned enums, strict schemas, canonical signing, replay semantics, trust downgrade, and credential rejection.\nChanged paths: docs/contracts/cmai-agent-protocol-v1.md, lib/agent-protocol/canonical.ts, lib/agent-protocol/constants.ts, lib/agent-protocol/credentials.ts, lib/agent-protocol/errors.ts, lib/agent-protocol/fixtures.ts, lib/agent-protocol/index.ts, lib/agent-protocol/parse.ts, lib/agent-protocol/protocol.test.ts, lib/agent-protocol/provenance.ts, lib/agent-protocol/schemas.ts, lib/agent-protocol/state.ts, lib/validation/contributionCardProtocol.ts\nChanged contracts: agent-protocol, contribution-card-schema, stable-error-taxonomy\n\nImpacted evidence/tasks:\n- t_e1280ef8 [todo]: consumes-contract:agent-protocol, consumes-contract:contribution-card-schema, consumes-contract:stable-error-taxonomy, downstream-of:t_33bd170f\n- t_6f18ee01 [todo]: consumes-contract:agent-protocol, downstream-of:t_33bd170f\n- t_9ea2c850 [todo]: consumes-contract:agent-protocol, downstream-of:t_33bd170f\n- t_c8908940 [todo]: consumes-contract:agent-protocol, downstream-of:t_33bd170f\n- t_29c553ee [todo]: consumes-contract:agent-protocol, downstream-of:t_33bd170f\n- t_18a5691c [todo]: consumes-contract:agent-protocol, downstream-of:t_33bd170f\n- t_1c434d70 [todo]: consumes-contract:agent-protocol, downstream-of:t_33bd170f\n- t_552cc1e6 [todo]: consumes-contract:contribution-card-schema, downstream-of:t_33bd170f\n- t_a4598966 [todo]: consumes-contract:contribution-card-schema, downstream-of:t_33bd170f\n- t_b7e8bef6 [todo]: consumes-contract:contribution-card-schema, downstream-of:t_33bd170f\n- t_3ac1c501 [todo]: downstream-of:t_33bd170f\n- t_f1a2a554 [todo]: downstream-of:t_33bd170f\n- t_14e81d5f [todo]: downstream-of:t_33bd170f\n- t_73821509 [todo]: downstream-of:t_33bd170f\n- t_0e392c87 [todo]: consumes-contract:contribution-card-schema, downstream-of:t_33bd170f\n- t_2f8c9fda [todo]: downstream-of:t_33bd170f\n- t_288fec21 [todo]: downstream-of:t_33bd170f\n- t_fb4b96de [todo]: downstream-of:t_33bd170f\n- t_cf615f55 [todo]: downstream-of:t_33bd170f\n- t_f8a36a53 [todo]: downstream-of:t_33bd170f\n- t_d66b810c [todo]: consumes-contract:agent-protocol, downstream-of:t_33bd170f\n- t_fa5f31d8 [todo]: downstream-of:t_33bd170f\n- t_c284c0f0 [todo]: downstream-of:t_33bd170f\n- t_884b69f8 [todo]: downstream-of:t_33bd170f\n- t_7000ac7d [todo]: downstream-of:t_33bd170f\n- t_2d234113 [todo]: downstream-of:t_33bd170f\n- t_b5943d17 [todo]: downstream-of:t_33bd170f\n- t_319db1a9 [todo]: downstream-of:t_33bd170f\n- t_da8dc3f1 [todo]: downstream-of:t_33bd170f\n- t_19c60b0c [todo]: downstream-of:t_33bd170f\n- t_28f0778f [todo]: downstream-of:t_33bd170f\n- t_3959adb0 [todo]: downstream-of:t_33bd170f\n- t_35d870c0 [todo]: downstream-of:t_33bd170f\n- t_7c631777 [todo]: downstream-of:t_33bd170f\n- t_67640478 [todo]: downstream-of:t_33bd170f\n- t_3c376ee8 [todo]: downstream-of:t_33bd170f\n- t_203e225f [todo]: downstream-of:t_33bd170f, mandatory-final-gate\n- t_e789e104 [todo]: downstream-of:t_33bd170f, mandatory-final-gate\n- t_342bea58 [todo]: downstream-of:t_33bd170f, mandatory-final-gate\n- t_f83e7414 [todo]: downstream-of:t_33bd170f, mandatory-final-gate\n\nRequired before completion:\n1. Re-read the source HANDOFF and every impacted card's latest HANDOFF.\n2. Update affected specs, contracts, tests, and task bodies/comments.\n3. Rerun proofs for every completed impacted card; do not rewrite its history.\n4. Post a revalidation matrix with old/new artifact hashes, test results, and remaining blocked cards.\n5. Complete this card only after ORCH confirms all linked children consume current evidence.\n\nNo deploy, publish, external send, provider authentication, or production mutation."
+    },
+    {
+      "id": "t_e1280ef8",
+      "type": "Roadmap",
+      "title": "02A P0 — Build the runtime-neutral CMAI Agent client core",
+      "status": "done",
+      "priority": 970,
+      "assignee": "alex",
+      "skills": [
+        "challenge-ai",
+        "hermes-kanban-operations"
+      ],
+      "body": "Wave: Foundation.\nGoal: implement the runtime-neutral client transport and local state machine once, with no platform persistence/business policy and no Hermes/OpenClaw runtime code.\n\nOwns:\n- typed adapter interface and client transport;\n- pair/feed/fetch/status/revoke calls;\n- local preview/edit/rerun/discard/submit state transitions;\n- local strict validation, canonical envelopes, redaction, stable error mapping, timeout/retry classification, nonce/idempotency handling, compatibility policy, and fake/reference adapters.\n\nDoes not own:\n- platform endpoints, persistence, authorization, reward/lifecycle policy;\n- Hermes/OpenClaw commands, UI, model calls, or provider metadata discovery.\n\nAcceptance:\n- fake adapters prove the complete client state machine without requiring child runtime cards;\n- secret-shaped and privileged trust fields are rejected or normalized;\n- same-key retries and conflicting-body retries behave deterministically;\n- browser/Node assumptions and package export/type compatibility are documented;\n- real adapter adoption is tested only in the later conformance gate.\n\nBoundaries: provider credentials/config, runtime memory/files/tools, and platform business logic never cross this interface."
+    },
+    {
+      "id": "t_685d27f2",
+      "type": "Revalidation",
+      "title": "REVALIDATE t_e1280ef8 impact 0544f623d7ef",
+      "status": "done",
+      "priority": 966,
+      "assignee": "alex",
+      "skills": [
+        "challenge-ai",
+        "hermes-kanban-operations"
+      ],
+      "body": "Change-impact control card generated by scripts/kanban-impact.py.\n\nSource task: t_e1280ef8 — 02A P0 — Build the runtime-neutral CMAI Agent client core\nFingerprint: 0544f623d7efba3201a0b8b207cc1ac3b8419d49e42adeb7ca2d217522b07a2f\nReason: Implement the runtime-neutral typed transport, local preview/submit state machine, stable errors, redaction, signer boundary, idempotent retry behavior, and fake adapters.\nChanged paths: packages/cmai-agent-client/README.md, packages/cmai-agent-client/package.json, packages/cmai-agent-client/src/client.test.ts, packages/cmai-agent-client/src/client.ts, packages/cmai-agent-client/src/errors.ts, packages/cmai-agent-client/src/fakes.ts, packages/cmai-agent-client/src/index.ts, packages/cmai-agent-client/src/state.ts, packages/cmai-agent-client/src/types.ts, packages/cmai-agent-client/tsconfig.json\nChanged contracts: client-idempotency, client-state-machine, shared-client-core\n\nImpacted evidence/tasks:\n- t_6f18ee01 [todo]: downstream-of:t_e1280ef8\n- t_9ea2c850 [todo]: downstream-of:t_e1280ef8\n- t_c8908940 [todo]: consumes-contract:shared-client-core, downstream-of:t_e1280ef8\n- t_29c553ee [todo]: consumes-contract:shared-client-core, downstream-of:t_e1280ef8\n- t_18a5691c [todo]: consumes-contract:shared-client-core, downstream-of:t_e1280ef8\n- t_1c434d70 [todo]: downstream-of:t_e1280ef8\n- t_552cc1e6 [todo]: downstream-of:t_e1280ef8\n- t_a4598966 [todo]: downstream-of:t_e1280ef8\n- t_b7e8bef6 [todo]: consumes-contract:shared-client-core, downstream-of:t_e1280ef8\n- t_3ac1c501 [todo]: downstream-of:t_e1280ef8\n- t_f1a2a554 [todo]: downstream-of:t_e1280ef8\n- t_14e81d5f [todo]: downstream-of:t_e1280ef8\n- t_73821509 [todo]: downstream-of:t_e1280ef8\n- t_0e392c87 [todo]: downstream-of:t_e1280ef8\n- t_2f8c9fda [todo]: downstream-of:t_e1280ef8\n- t_288fec21 [todo]: downstream-of:t_e1280ef8\n- t_fb4b96de [todo]: downstream-of:t_e1280ef8\n- t_cf615f55 [todo]: downstream-of:t_e1280ef8\n- t_f8a36a53 [todo]: downstream-of:t_e1280ef8\n- t_d66b810c [todo]: downstream-of:t_e1280ef8\n- t_fa5f31d8 [todo]: downstream-of:t_e1280ef8\n- t_c284c0f0 [todo]: downstream-of:t_e1280ef8\n- t_884b69f8 [todo]: downstream-of:t_e1280ef8\n- t_7000ac7d [todo]: downstream-of:t_e1280ef8\n- t_2d234113 [todo]: downstream-of:t_e1280ef8\n- t_b5943d17 [todo]: downstream-of:t_e1280ef8\n- t_319db1a9 [todo]: downstream-of:t_e1280ef8\n- t_da8dc3f1 [todo]: downstream-of:t_e1280ef8\n- t_19c60b0c [todo]: downstream-of:t_e1280ef8\n- t_28f0778f [todo]: downstream-of:t_e1280ef8\n- t_3959adb0 [todo]: downstream-of:t_e1280ef8\n- t_35d870c0 [todo]: downstream-of:t_e1280ef8\n- t_7c631777 [todo]: downstream-of:t_e1280ef8\n- t_67640478 [todo]: downstream-of:t_e1280ef8\n- t_3c376ee8 [todo]: downstream-of:t_e1280ef8\n- t_203e225f [todo]: downstream-of:t_e1280ef8, mandatory-final-gate\n- t_e789e104 [todo]: downstream-of:t_e1280ef8, mandatory-final-gate\n- t_342bea58 [todo]: downstream-of:t_e1280ef8, mandatory-final-gate\n- t_f83e7414 [todo]: downstream-of:t_e1280ef8, mandatory-final-gate\n\nRequired before completion:\n1. Re-read the source HANDOFF and every impacted card's latest HANDOFF.\n2. Update affected specs, contracts, tests, and task bodies/comments.\n3. Rerun proofs for every completed impacted card; do not rewrite its history.\n4. Post a revalidation matrix with old/new artifact hashes, test results, and remaining blocked cards.\n5. Complete this card only after ORCH confirms all linked children consume current evidence.\n\nNo deploy, publish, external send, provider authentication, or production mutation."
+    },
+    {
+      "id": "t_6f18ee01",
+      "type": "Roadmap",
+      "title": "02B P0 — Freeze telemetry event and privacy contracts",
+      "status": "done",
+      "priority": 965,
+      "assignee": "alex",
+      "skills": [
+        "challenge-ai",
+        "hermes-kanban-operations"
+      ],
+      "body": "Wave: Foundation.\nGoal: define privacy-safe, versioned product event contracts before pairing, adapter, steward, reward, and notification implementations emit data.\n\nScope:\n- event names and state transitions for install, pair, feed, approved run, preview, submit, revoke, review, answer version, lifecycle, reward, dispute, moderation, notification, and cohort readiness;\n- field-level allowlists, pseudonymous identifiers, event-versioning, idempotency/deduplication, retention/deletion/suppression behavior, environment flags, and provider-disabled mode;\n- local test collector and recursive forbidden-field validation;\n- no dashboard and no live analytics provider integration.\n\nAcceptance:\n- every event has an owner, trigger, stable version, allowlisted properties, and privacy class;\n- prompts, answers, transcripts, URLs/query strings, emails, social URLs, credentials, secrets, pairing codes, and private challenge text are rejected recursively;\n- unknown/high-cardinality properties are dropped server-side;\n- local deterministic fixtures cover duplicate delivery, suppression/deletion, disabled mode, and manual/paired/sandbox provenance without trust inflation;\n- downstream cards know exactly which events they must emit and test.\n\nBoundaries: schema and local instrumentation contract only. No production analytics mutation, external dashboard, tracking-provider call, or consent-policy activation without explicit approval."
+    },
+    {
+      "id": "t_01b9d600",
+      "type": "Revalidation",
+      "title": "REVALIDATE t_6f18ee01 impact 7aedcaa1f1f6",
+      "status": "done",
+      "priority": 961,
+      "assignee": "alex",
+      "skills": [
+        "challenge-ai",
+        "hermes-kanban-operations"
+      ],
+      "body": "Change-impact control card generated by scripts/kanban-impact.py.\n\nSource task: t_6f18ee01 — 02B P0 — Freeze telemetry event and privacy contracts\nFingerprint: 7aedcaa1f1f62183cdb7029d4c9cf9f8471aa063d5d82e09e7476a478f741f84\nReason: Freeze the versioned privacy-safe telemetry registry, recursive forbidden-data scanner, pseudonymous identifiers, local idempotent collector, retention/deletion semantics, and downstream emitter obligations.\nChanged paths: docs/contracts/cmai-telemetry-v1.md, lib/telemetry/collector.ts, lib/telemetry/contract.ts, lib/telemetry/index.ts, lib/telemetry/privacy.ts, lib/telemetry/telemetry.test.ts, lib/telemetry/test-fixtures.ts\nChanged contracts: telemetry-contract, telemetry-privacy-allowlist, telemetry-retention\n\nImpacted evidence/tasks:\n- t_9ea2c850 [todo]: consumes-contract:telemetry-contract, downstream-of:t_6f18ee01\n- t_c8908940 [todo]: consumes-contract:telemetry-contract, downstream-of:t_6f18ee01\n- t_29c553ee [todo]: consumes-contract:telemetry-contract, downstream-of:t_6f18ee01\n- t_18a5691c [todo]: consumes-contract:telemetry-contract, downstream-of:t_6f18ee01\n- t_1c434d70 [todo]: consumes-contract:telemetry-contract, downstream-of:t_6f18ee01\n- t_552cc1e6 [todo]: consumes-contract:telemetry-contract, downstream-of:t_6f18ee01\n- t_a4598966 [todo]: consumes-contract:telemetry-contract, downstream-of:t_6f18ee01\n- t_b7e8bef6 [todo]: downstream-of:t_6f18ee01\n- t_3ac1c501 [todo]: downstream-of:t_6f18ee01\n- t_f1a2a554 [todo]: downstream-of:t_6f18ee01\n- t_14e81d5f [todo]: downstream-of:t_6f18ee01\n- t_73821509 [todo]: downstream-of:t_6f18ee01\n- t_0e392c87 [todo]: downstream-of:t_6f18ee01\n- t_2f8c9fda [todo]: downstream-of:t_6f18ee01\n- t_288fec21 [todo]: consumes-contract:telemetry-contract, downstream-of:t_6f18ee01\n- t_fb4b96de [todo]: downstream-of:t_6f18ee01\n- t_cf615f55 [todo]: downstream-of:t_6f18ee01\n- t_f8a36a53 [todo]: downstream-of:t_6f18ee01\n- t_d66b810c [todo]: downstream-of:t_6f18ee01\n- t_fa5f31d8 [todo]: downstream-of:t_6f18ee01\n- t_c284c0f0 [todo]: consumes-contract:telemetry-contract, downstream-of:t_6f18ee01\n- t_884b69f8 [todo]: downstream-of:t_6f18ee01\n- t_7000ac7d [todo]: downstream-of:t_6f18ee01\n- t_2d234113 [todo]: consumes-contract:telemetry-contract, downstream-of:t_6f18ee01\n- t_b5943d17 [todo]: downstream-of:t_6f18ee01\n- t_319db1a9 [todo]: downstream-of:t_6f18ee01\n- t_da8dc3f1 [todo]: downstream-of:t_6f18ee01\n- t_19c60b0c [todo]: downstream-of:t_6f18ee01\n- t_28f0778f [todo]: consumes-contract:telemetry-retention, downstream-of:t_6f18ee01\n- t_3959adb0 [todo]: downstream-of:t_6f18ee01\n- t_35d870c0 [todo]: consumes-contract:telemetry-contract, downstream-of:t_6f18ee01\n- t_7c631777 [todo]: downstream-of:t_6f18ee01\n- t_67640478 [todo]: downstream-of:t_6f18ee01\n- t_3c376ee8 [todo]: consumes-contract:telemetry-contract, downstream-of:t_6f18ee01\n- t_203e225f [todo]: downstream-of:t_6f18ee01, mandatory-final-gate\n- t_e789e104 [todo]: downstream-of:t_6f18ee01, mandatory-final-gate\n- t_342bea58 [todo]: downstream-of:t_6f18ee01, mandatory-final-gate\n- t_f83e7414 [todo]: downstream-of:t_6f18ee01, mandatory-final-gate\n\nRequired before completion:\n1. Re-read the source HANDOFF and every impacted card's latest HANDOFF.\n2. Update affected specs, contracts, tests, and task bodies/comments.\n3. Rerun proofs for every completed impacted card; do not rewrite its history.\n4. Post a revalidation matrix with old/new artifact hashes, test results, and remaining blocked cards.\n5. Complete this card only after ORCH confirms all linked children consume current evidence.\n\nNo deploy, publish, external send, provider authentication, or production mutation."
+    },
+    {
+      "id": "t_257a54e3",
+      "type": "Revalidation",
+      "title": "REVALIDATE t_dda620cf impact 290808877b9e",
+      "status": "done",
+      "priority": 961,
+      "assignee": "alex",
+      "skills": [
+        "challenge-ai",
+        "hermes-kanban-operations"
+      ],
+      "body": "Change-impact control card generated by scripts/kanban-impact.py.\n\nSource task: t_dda620cf — Document and verify challenge semantics end to end\nFingerprint: 290808877b9ec4edd81d4061fda4208afb005dde28da68c18e691c8f197f3f2c\nReason: Document canonical challenge semantics and add end-to-end regression proof across validation, intake, persistence, migration, public rendering, and pure closure evaluation.\nChanged paths: docs/product/2026-07-15-challenge-semantics-end-to-end.md, tests/e2e/challenge-semantics.test.tsx\nChanged contracts: challenge-semantics-documentation, challenge-semantics-e2e-proof\n\nImpacted evidence/tasks:\n- t_9ea2c850 [todo]: downstream-of:t_dda620cf\n- t_c8908940 [todo]: downstream-of:t_dda620cf\n- t_29c553ee [todo]: downstream-of:t_dda620cf\n- t_18a5691c [todo]: downstream-of:t_dda620cf\n- t_1c434d70 [todo]: downstream-of:t_dda620cf\n- t_552cc1e6 [todo]: downstream-of:t_dda620cf\n- t_a4598966 [todo]: downstream-of:t_dda620cf\n- t_b7e8bef6 [todo]: downstream-of:t_dda620cf\n- t_3ac1c501 [todo]: downstream-of:t_dda620cf\n- t_f1a2a554 [todo]: downstream-of:t_dda620cf\n- t_14e81d5f [todo]: downstream-of:t_dda620cf\n- t_73821509 [todo]: downstream-of:t_dda620cf\n- t_0e392c87 [todo]: downstream-of:t_dda620cf\n- t_2f8c9fda [todo]: downstream-of:t_dda620cf\n- t_288fec21 [todo]: downstream-of:t_dda620cf\n- t_fb4b96de [todo]: downstream-of:t_dda620cf\n- t_cf615f55 [todo]: downstream-of:t_dda620cf\n- t_f8a36a53 [todo]: downstream-of:t_dda620cf\n- t_d66b810c [todo]: downstream-of:t_dda620cf\n- t_fa5f31d8 [todo]: downstream-of:t_dda620cf\n- t_c284c0f0 [todo]: downstream-of:t_dda620cf\n- t_884b69f8 [todo]: downstream-of:t_dda620cf\n- t_7000ac7d [todo]: downstream-of:t_dda620cf\n- t_2d234113 [todo]: downstream-of:t_dda620cf\n- t_b5943d17 [todo]: downstream-of:t_dda620cf\n- t_319db1a9 [todo]: downstream-of:t_dda620cf\n- t_da8dc3f1 [todo]: downstream-of:t_dda620cf\n- t_19c60b0c [todo]: downstream-of:t_dda620cf\n- t_28f0778f [todo]: downstream-of:t_dda620cf\n- t_3959adb0 [todo]: downstream-of:t_dda620cf\n- t_35d870c0 [todo]: downstream-of:t_dda620cf\n- t_7c631777 [todo]: downstream-of:t_dda620cf\n- t_67640478 [todo]: downstream-of:t_dda620cf\n- t_3c376ee8 [todo]: downstream-of:t_dda620cf\n- t_203e225f [todo]: downstream-of:t_dda620cf, mandatory-final-gate\n- t_e789e104 [todo]: downstream-of:t_dda620cf, mandatory-final-gate\n- t_342bea58 [todo]: downstream-of:t_dda620cf, mandatory-final-gate\n- t_f83e7414 [todo]: downstream-of:t_dda620cf, mandatory-final-gate\n\nRequired before completion:\n1. Re-read the source HANDOFF and every impacted card's latest HANDOFF.\n2. Update affected specs, contracts, tests, and task bodies/comments.\n3. Rerun proofs for every completed impacted card; do not rewrite its history.\n4. Post a revalidation matrix with old/new artifact hashes, test results, and remaining blocked cards.\n5. Complete this card only after ORCH confirms all linked children consume current evidence.\n\nNo deploy, publish, external send, provider authentication, or production mutation."
+    },
+    {
+      "id": "t_9ea2c850",
+      "type": "Roadmap",
+      "title": "03 P0 — Add challenge intent, criteria, and declarative reward posture",
+      "status": "done",
+      "priority": 960,
+      "assignee": "alex",
+      "skills": [
+        "challenge-ai",
+        "hermes-kanban-operations"
+      ],
+      "body": "Wave: Foundation / shared challenge semantics.\nGoal: define challenge intent, success or closure criteria, requested perspectives, constraints, safety posture, and declarative reward posture before the Agent feed and steward depend on them.\n\nScope:\n- seven intents: solve, decide, pressure_test, perspectives, debate, options, audit;\n- intent-specific required criteria and valid successful outcomes;\n- requested perspectives, constraints, missing information, sensitivity/public eligibility, and reward posture;\n- versioned criteria history after contributions begin;\n- legacy records mapped to criteria_unconfirmed with fail-closed decisive closure;\n- public intake/card/feed rendering.\n\nAcceptance:\n- empty/impossible/missing criteria and invalid intent/outcome pairs fail clearly;\n- legacy/default/migration behavior is documented and tested;\n- criteria length, hostile content, and private-data handling are bounded;\n- this card declares reward posture only—reservation, escrow, fees, unused funds, and settlement belong to Card 18;\n- no activity or persuasive prose can manufacture solved status.\n\nBoundaries: no settlement implementation and no autonomous challenge-state change."
+    },
+    {
+      "id": "t_c5c7abe1",
+      "type": "Revalidation",
+      "title": "REVALIDATE t_9ea2c850 impact 57c221a97503",
+      "status": "done",
+      "priority": 951,
+      "assignee": "alex",
+      "skills": [
+        "challenge-ai",
+        "hermes-kanban-operations"
+      ],
+      "body": "Change-impact control card generated by scripts/kanban-impact.py.\n\nSource task: t_9ea2c850 — 03 P0 — Add challenge intent, criteria, and declarative reward posture\nFingerprint: 57c221a9750348bc4ae394150bc5207368c15f0eff498b2bc71fbf7389ad113a\nReason: Finish Card 03 review corrections by binding criteria/privacy acknowledgement to exact content, enforcing canonical public eligibility across every interaction/archive/profile/Agent path, hardening hostile criteria validation, and preserving legacy records as read-only compatibility views.\nChanged paths: CHANGELOG.md, app/api/agent/contributions/route.ts, app/api/agent/watch/route.ts, app/api/challenges/[id]/contributions/route.ts, app/api/challenges/[id]/prompt/route.ts, app/api/challenges/[id]/synthesis/route.ts, app/api/challenges/route.ts, app/api/contributions/[id]/community-votes/route.ts, app/api/contributions/[id]/ratings/route.ts, components/challenge/ChallengeCard.tsx, components/challenge/ChallengeFeed.tsx, components/challenge/ChallengeIntake.tsx, docs/contracts/cmai-challenge-intent-v1.md, docs/plans/2026-07-14-plugin-network-impact-map.json, docs/product/2026-07-15-challenge-semantics-end-to-end.md, lib/agent-home/runExecutor.ts, lib/agent-home/runRequests.ts, lib/archive/decisionArtifact.ts, lib/archive/decisionArtifactStore.ts, lib/archive/search.ts, lib/challenges/intent.ts, lib/challenges/intentAcknowledgement.ts, lib/community/voting.ts, lib/store/local.ts, lib/store/postgres.ts, lib/store/publicProfile.ts, scripts/smoke-live-challenge-loop.ts, tests/e2e/challenge-semantics.test.tsx, tests/unit/agentLoop.test.ts, tests/unit/agentRunApi.test.ts, tests/unit/agentRunExecutor.test.ts, tests/unit/answerArchive.test.ts, tests/unit/answerArtifactApi.test.ts, tests/unit/apiRoutes.test.ts, tests/unit/challengeDebatePage.test.tsx, tests/unit/challengeFeedLiveLoop.test.tsx, tests/unit/challengeIntakeModes.test.tsx, tests/unit/challengeIntent.test.ts, tests/unit/creditSettlement.test.ts, tests/unit/decisionArtifact.test.ts, tests/unit/decisionArtifactPage.test.tsx, tests/unit/jobs.test.ts, tests/unit/lobbyPage.test.tsx, tests/unit/marketingPage.test.tsx, tests/unit/moderationPage.test.tsx, tests/unit/moderationStore.test.ts, tests/unit/profilePage.test.tsx, tests/unit/synthesis.test.ts\nChanged contracts: agent-feed, board-governance, challenge-intake-api, challenge-intent, challenge-publication-policy, challenge-request-size-policy, challenge-semantics-documentation, challenge-semantics-e2e-proof, challenge-semantics-public-ui, challenge-success-criteria, criteria-version-persistence, declarative-reward-posture, edited-after-run-provenance, impact-map, legacy-challenge-migration, preview-submit-workflow, public-eligibility-projection, stable-error-taxonomy, submission-idempotency\n\nImpacted evidence/tasks:\n- t_b5be70d2 [done]: consumes-contract:board-governance, consumes-contract:impact-map\n- t_33bd170f [done]: owns-contract:stable-error-taxonomy\n- t_e1280ef8 [done]: consumes-contract:stable-error-taxonomy\n- t_c8908940 [todo]: downstream-of:t_9ea2c850\n- t_29c553ee [todo]: downstream-of:t_9ea2c850\n- t_18a5691c [todo]: downstream-of:t_9ea2c850\n- t_1c434d70 [todo]: consumes-contract:challenge-intent, downstream-of:t_9ea2c850, owns-contract:agent-feed\n- t_552cc1e6 [todo]: consumes-contract:agent-feed, downstream-of:t_9ea2c850\n- t_a4598966 [todo]: consumes-contract:agent-feed, downstream-of:t_9ea2c850\n- t_b7e8bef6 [todo]: downstream-of:t_9ea2c850, owns-contract:edited-after-run-provenance, owns-contract:preview-submit-workflow, owns-contract:submission-idempotency, owns-path:app/api/agent/contributions/route.ts\n- t_3ac1c501 [todo]: consumes-contract:edited-after-run-provenance, consumes-contract:preview-submit-workflow, downstream-of:t_9ea2c850\n- t_f1a2a554 [todo]: consumes-contract:preview-submit-workflow, downstream-of:t_9ea2c850\n- t_14e81d5f [todo]: consumes-contract:preview-submit-workflow, downstream-of:t_9ea2c850\n- t_73821509 [todo]: downstream-of:t_9ea2c850\n- t_0e392c87 [todo]: consumes-contract:challenge-intent, downstream-of:t_9ea2c850\n- t_2f8c9fda [todo]: downstream-of:t_9ea2c850\n- t_288fec21 [todo]: downstream-of:t_9ea2c850\n- t_fb4b96de [todo]: downstream-of:t_9ea2c850\n- t_cf615f55 [todo]: consumes-contract:challenge-intent, downstream-of:t_9ea2c850\n- t_f8a36a53 [todo]: downstream-of:t_9ea2c850\n- t_d66b810c [todo]: downstream-of:t_9ea2c850\n- t_fa5f31d8 [todo]: downstream-of:t_9ea2c850\n- t_c284c0f0 [todo]: consumes-contract:challenge-intent, downstream-of:t_9ea2c850\n- t_884b69f8 [todo]: downstream-of:t_9ea2c850\n- t_7000ac7d [todo]: downstream-of:t_9ea2c850\n- t_2d234113 [todo]: downstream-of:t_9ea2c850\n- t_b5943d17 [todo]: downstream-of:t_9ea2c850\n- t_319db1a9 [todo]: downstream-of:t_9ea2c850\n- t_da8dc3f1 [todo]: downstream-of:t_9ea2c850\n- t_19c60b0c [todo]: downstream-of:t_9ea2c850\n- t_28f0778f [todo]: downstream-of:t_9ea2c850\n- t_3959adb0 [todo]: consumes-contract:challenge-intent, downstream-of:t_9ea2c850\n- t_35d870c0 [todo]: downstream-of:t_9ea2c850\n- t_7c631777 [todo]: downstream-of:t_9ea2c850\n- t_67640478 [todo]: downstream-of:t_9ea2c850\n- t_3c376ee8 [todo]: downstream-of:t_9ea2c850\n- t_203e225f [todo]: downstream-of:t_9ea2c850, mandatory-final-gate\n- t_e789e104 [todo]: downstream-of:t_9ea2c850, mandatory-final-gate\n- t_342bea58 [todo]: downstream-of:t_9ea2c850, mandatory-final-gate\n- t_f83e7414 [todo]: downstream-of:t_9ea2c850, mandatory-final-gate\n- t_433f4488 [done]: consumes-contract:challenge-intent, consumes-contract:challenge-success-criteria, consumes-contract:declarative-reward-posture\n- t_5feb7b23 [done]: consumes-contract:challenge-intent, consumes-contract:challenge-success-criteria, consumes-contract:declarative-reward-posture\n- t_6dadedc7 [done]: consumes-contract:challenge-intake-api, consumes-contract:challenge-publication-policy, consumes-contract:public-eligibility-projection, owns-contract:challenge-semantics-public-ui, owns-path:components/challenge/ChallengeCard.tsx, owns-path:components/challenge/ChallengeFeed.tsx, owns-path:components/challenge/ChallengeIntake.tsx, owns-path:tests/unit/challengeFeedLiveLoop.test.tsx, owns-path:tests/unit/challengeIntakeModes.test.tsx, owns-path:tests/unit/marketingPage.test.tsx\n- t_a2f95e98 [done]: consumes-contract:criteria-version-persistence, consumes-contract:legacy-challenge-migration, consumes-contract:public-eligibility-projection, owns-contract:challenge-intake-api, owns-contract:challenge-publication-policy, owns-contract:challenge-request-size-policy, owns-path:app/api/challenges/route.ts, owns-path:scripts/smoke-live-challenge-loop.ts, owns-path:tests/unit/apiRoutes.test.ts\n- t_dda620cf [done]: consumes-contract:challenge-intake-api, consumes-contract:challenge-semantics-public-ui, consumes-contract:criteria-version-persistence, consumes-contract:legacy-challenge-migration, owns-contract:challenge-semantics-documentation, owns-contract:challenge-semantics-e2e-proof, owns-path:docs/product/2026-07-15-challenge-semantics-end-to-end.md, owns-path:tests/e2e/challenge-semantics.test.tsx\n- t_f34ee6b1 [done]: consumes-contract:challenge-intent, consumes-contract:challenge-success-criteria, owns-contract:criteria-version-persistence, owns-contract:legacy-challenge-migration, owns-contract:public-eligibility-projection, owns-path:lib/store/local.ts, owns-path:lib/store/postgres.ts\n\nRequired before completion:\n1. Re-read the source HANDOFF and every impacted card's latest HANDOFF.\n2. Update affected specs, contracts, tests, and task bodies/comments.\n3. Rerun proofs for every completed impacted card; do not rewrite its history.\n4. Post a revalidation matrix with old/new artifact hashes, test results, and remaining blocked cards.\n5. Complete this card only after ORCH confirms all linked children consume current evidence.\n\nNo deploy, publish, external send, provider authentication, or production mutation."
+    },
+    {
+      "id": "t_c8908940",
+      "type": "Roadmap",
+      "title": "04 P0 — Build platform pairing and revocation services",
+      "status": "done",
+      "priority": 950,
+      "assignee": "alex",
+      "skills": [
+        "challenge-ai",
+        "hermes-kanban-operations"
+      ],
+      "body": "Wave: 1 platform service.\nGoal: implement owner-bound pairing and revocation endpoints/persistence for any supported local Agent adapter.\n\nOwns:\n- authentication design decision (public-key or bearer-client), high-entropy single-use short-lived pairing codes, hashed storage where applicable, owner/session binding, client/device labels, scopes, rotation, revocation, authoritative checks, rate limits, CSRF, audit events, and platform persistence;\n- local/Postgres parity and structured errors.\n\nDoes not own client UX/state or runtime commands.\n\nAcceptance:\n- codes are never accepted in GET query strings or exposed in logs;\n- concurrent redemption, enumeration, foreign-owner access, revoke-versus-submit, cache-bypass revocation, rename authorization, rotation, and rate-limit reset are tested;\n- every protected action checks fresh authoritative revocation state;\n- pairing credentials cannot authorize provider access or unrelated account data.\n\nBoundaries: no provider credentials, consumer OAuth replay, production auth mutation, or broad account scope."
+    },
+    {
+      "id": "t_91d5f01e",
+      "type": "Revalidation",
+      "title": "REVALIDATE t_c8908940 impact e87ca1e3f7d0",
+      "status": "done",
+      "priority": 941,
+      "assignee": "alex",
+      "skills": [
+        "challenge-ai",
+        "hermes-kanban-operations"
+      ],
+      "body": "Change-impact control card generated by scripts/kanban-impact.py.\n\nSource task: t_c8908940 — 04 P0 — Build platform pairing and revocation services\nFingerprint: e87ca1e3f7d0907ea8d67d945a6f0801719312964638c67f24e04697343e0a09\nReason: Owner-bound pairing, Ed25519 authentication, key rotation/revocation, local/Postgres persistence, API routes, audits, and structured errors\nChanged paths: app/api/agent/pair/[id]/route.ts, app/api/agent/pair/code/route.ts, app/api/agent/pair/rotate/route.ts, app/api/agent/pair/route.ts, app/api/agent/revoke/[id]/route.ts, app/api/agent/revoke/route.ts, lib/agent-pairing/README.md, lib/agent-pairing/http.ts, lib/agent-pairing/index.ts, lib/agent-pairing/postgresSmoke.ts, lib/agent-pairing/routes.test.ts, lib/agent-pairing/runtime.ts, lib/agent-pairing/service.test.ts, lib/agent-pairing/service.ts, lib/agent-pairing/smoke.ts, lib/agent-pairing/storage.ts, lib/agent-pairing/telemetry.ts, lib/agent-pairing/testUtils.ts, lib/agent-pairing/types.ts\nChanged contracts: pairing-api, pairing-auth, revocation-contract\n\nImpacted evidence/tasks:\n- t_29c553ee [todo]: consumes-contract:pairing-api, downstream-of:t_c8908940\n- t_18a5691c [todo]: consumes-contract:pairing-api, downstream-of:t_c8908940\n- t_1c434d70 [todo]: downstream-of:t_c8908940\n- t_552cc1e6 [todo]: downstream-of:t_c8908940\n- t_a4598966 [todo]: downstream-of:t_c8908940\n- t_b7e8bef6 [todo]: consumes-contract:pairing-api, downstream-of:t_c8908940\n- t_3ac1c501 [todo]: consumes-contract:pairing-auth, downstream-of:t_c8908940\n- t_f1a2a554 [todo]: downstream-of:t_c8908940\n- t_14e81d5f [todo]: downstream-of:t_c8908940\n- t_73821509 [todo]: consumes-contract:revocation-contract, downstream-of:t_c8908940\n- t_0e392c87 [todo]: downstream-of:t_c8908940\n- t_2f8c9fda [todo]: downstream-of:t_c8908940\n- t_288fec21 [todo]: downstream-of:t_c8908940\n- t_fb4b96de [todo]: downstream-of:t_c8908940\n- t_cf615f55 [todo]: downstream-of:t_c8908940\n- t_f8a36a53 [todo]: downstream-of:t_c8908940\n- t_d66b810c [todo]: downstream-of:t_c8908940\n- t_fa5f31d8 [todo]: consumes-contract:pairing-api, downstream-of:t_c8908940\n- t_c284c0f0 [todo]: downstream-of:t_c8908940\n- t_884b69f8 [todo]: downstream-of:t_c8908940\n- t_7000ac7d [todo]: downstream-of:t_c8908940\n- t_2d234113 [todo]: downstream-of:t_c8908940\n- t_b5943d17 [todo]: consumes-contract:pairing-auth, downstream-of:t_c8908940\n- t_319db1a9 [todo]: downstream-of:t_c8908940\n- t_da8dc3f1 [todo]: downstream-of:t_c8908940\n- t_19c60b0c [todo]: downstream-of:t_c8908940\n- t_28f0778f [todo]: downstream-of:t_c8908940\n- t_3959adb0 [todo]: downstream-of:t_c8908940\n- t_35d870c0 [todo]: downstream-of:t_c8908940\n- t_7c631777 [todo]: downstream-of:t_c8908940\n- t_67640478 [todo]: downstream-of:t_c8908940\n- t_3c376ee8 [todo]: downstream-of:t_c8908940\n- t_203e225f [todo]: downstream-of:t_c8908940, mandatory-final-gate\n- t_e789e104 [todo]: downstream-of:t_c8908940, mandatory-final-gate\n- t_342bea58 [todo]: downstream-of:t_c8908940, mandatory-final-gate\n- t_f83e7414 [todo]: downstream-of:t_c8908940, mandatory-final-gate\n\nRequired before completion:\n1. Re-read the source HANDOFF and every impacted card's latest HANDOFF.\n2. Update affected specs, contracts, tests, and task bodies/comments.\n3. Rerun proofs for every completed impacted card; do not rewrite its history.\n4. Post a revalidation matrix with old/new artifact hashes, test results, and remaining blocked cards.\n5. Complete this card only after ORCH confirms all linked children consume current evidence.\n\nNo deploy, publish, external send, provider authentication, or production mutation."
+    },
+    {
+      "id": "t_29c553ee",
+      "type": "Roadmap",
+      "title": "05 P0 — Build the CMAI Hermes adapter scaffold",
+      "status": "done",
+      "priority": 940,
+      "assignee": "alex",
+      "skills": [
+        "challenge-ai",
+        "hermes-kanban-operations"
+      ],
+      "body": "Wave: 1 runtime adapter.\nGoal: build the Hermes-specific scaffold and user surfaces over the shared client without duplicating platform or protocol logic.\n\nScope:\n- exact local package directory/repository decision, supported Hermes version range, manifest/build/lockfile ownership;\n- /cmai pair, status, feed, run, preview, submit, discard, revoke, update/help surfaces;\n- contribution skill and shared-client delegation;\n- explicit disabled/unpaired/incompatible states and uninstall path.\n\nDoes not own:\n- shared protocol/client state machine;\n- platform pairing/feed/submission policy;\n- bounded inference implementation (Card 07);\n- Challenge Steward implementation/bundling (Card 11).\n\nAcceptance:\n- clean package build and isolated-profile registration pass;\n- no daemon, automatic inference, ambient memory, hooks, provider configuration, or lifecycle network call;\n- every surface delegates to the shared core;\n- incompatible/disabled/unpaired states fail clearly.\n\nBoundaries: no public package, Gateway restart, provider auth, or real model call without explicit approval."
+    },
+    {
+      "id": "t_733e630d",
+      "type": "Revalidation",
+      "title": "REVALIDATE t_29c553ee impact f2c275505548",
+      "status": "done",
+      "priority": 931,
+      "assignee": "alex",
+      "skills": [
+        "challenge-ai",
+        "hermes-kanban-operations"
+      ],
+      "body": "Change-impact control card generated by scripts/kanban-impact.py.\n\nSource task: t_29c553ee — 05 P0 — Build the CMAI Hermes adapter scaffold\nFingerprint: f2c2755055484caef42e930f414b7a0c8f53a9a19d934fca57089ba6e92811fd\nReason: Hermes adapter scaffold, namespaced contribution skill, and private local artifact proof.\nChanged paths: packages/cmai-hermes-adapter/README.md, packages/cmai-hermes-adapter/package.json, packages/cmai-hermes-adapter/scripts/stage-local.ts, packages/cmai-hermes-adapter/src/constants.ts, packages/cmai-hermes-adapter/src/controller.test.ts, packages/cmai-hermes-adapter/src/controller.ts, packages/cmai-hermes-adapter/src/cryptoSigner.ts, packages/cmai-hermes-adapter/src/index.ts, packages/cmai-hermes-adapter/src/stateStore.test.ts, packages/cmai-hermes-adapter/src/stateStore.ts, packages/cmai-hermes-adapter/src/telemetry.test.ts, packages/cmai-hermes-adapter/src/telemetry.ts, packages/cmai-hermes-adapter/src/transport.test.ts, packages/cmai-hermes-adapter/src/transport.ts, packages/cmai-hermes-adapter/src/worker.integration.test.ts, packages/cmai-hermes-adapter/src/worker.ts, packages/cmai-hermes-adapter/tsconfig.json, plugins/cmai-hermes/README.md, plugins/cmai-hermes/__init__.py, plugins/cmai-hermes/bridge.py, plugins/cmai-hermes/plugin.yaml, plugins/cmai-hermes/skills/cmai-contribution/SKILL.md, plugins/cmai-hermes/tests/test_registration.py\nChanged contracts: hermes-adapter, hermes-command-surface, hermes-package-proof\n\nImpacted evidence/tasks:\n- t_18a5691c [todo]: downstream-of:t_29c553ee\n- t_1c434d70 [todo]: downstream-of:t_29c553ee\n- t_552cc1e6 [todo]: consumes-contract:hermes-adapter, downstream-of:t_29c553ee\n- t_a4598966 [todo]: downstream-of:t_29c553ee\n- t_b7e8bef6 [todo]: downstream-of:t_29c553ee\n- t_3ac1c501 [todo]: downstream-of:t_29c553ee\n- t_f1a2a554 [todo]: consumes-contract:hermes-adapter, downstream-of:t_29c553ee, owns-contract:hermes-package-proof, owns-path:packages/cmai-hermes-adapter/package.json, owns-path:packages/cmai-hermes-adapter/scripts/stage-local.ts\n- t_14e81d5f [todo]: downstream-of:t_29c553ee\n- t_73821509 [todo]: consumes-contract:hermes-package-proof, downstream-of:t_29c553ee\n- t_0e392c87 [todo]: downstream-of:t_29c553ee\n- t_2f8c9fda [todo]: consumes-contract:hermes-adapter, downstream-of:t_29c553ee\n- t_288fec21 [todo]: downstream-of:t_29c553ee\n- t_fb4b96de [todo]: downstream-of:t_29c553ee\n- t_cf615f55 [todo]: downstream-of:t_29c553ee\n- t_f8a36a53 [todo]: downstream-of:t_29c553ee\n- t_d66b810c [todo]: consumes-contract:hermes-package-proof, downstream-of:t_29c553ee\n- t_fa5f31d8 [todo]: downstream-of:t_29c553ee\n- t_c284c0f0 [todo]: downstream-of:t_29c553ee\n- t_884b69f8 [todo]: downstream-of:t_29c553ee\n- t_7000ac7d [todo]: downstream-of:t_29c553ee\n- t_2d234113 [todo]: downstream-of:t_29c553ee\n- t_b5943d17 [todo]: downstream-of:t_29c553ee\n- t_319db1a9 [todo]: downstream-of:t_29c553ee\n- t_da8dc3f1 [todo]: downstream-of:t_29c553ee\n- t_19c60b0c [todo]: downstream-of:t_29c553ee\n- t_28f0778f [todo]: downstream-of:t_29c553ee\n- t_3959adb0 [todo]: downstream-of:t_29c553ee\n- t_35d870c0 [todo]: downstream-of:t_29c553ee\n- t_7c631777 [todo]: downstream-of:t_29c553ee\n- t_67640478 [todo]: downstream-of:t_29c553ee\n- t_3c376ee8 [todo]: downstream-of:t_29c553ee\n- t_203e225f [todo]: downstream-of:t_29c553ee, mandatory-final-gate\n- t_e789e104 [todo]: consumes-contract:hermes-package-proof, downstream-of:t_29c553ee, mandatory-final-gate\n- t_342bea58 [todo]: downstream-of:t_29c553ee, mandatory-final-gate\n- t_f83e7414 [todo]: downstream-of:t_29c553ee, mandatory-final-gate\n\nRequired before completion:\n1. Re-read the source HANDOFF and every impacted card's latest HANDOFF.\n2. Update affected specs, contracts, tests, and task bodies/comments.\n3. Rerun proofs for every completed impacted card; do not rewrite its history.\n4. Post a revalidation matrix with old/new artifact hashes, test results, and remaining blocked cards.\n5. Complete this card only after ORCH confirms all linked children consume current evidence.\n\nNo deploy, publish, external send, provider authentication, or production mutation."
+    },
+    {
+      "id": "t_18a5691c",
+      "type": "Roadmap",
+      "title": "05A P0 — Build the CMAI OpenClaw adapter scaffold",
+      "status": "done",
+      "priority": 930,
+      "assignee": "alex",
+      "skills": [
+        "challenge-ai",
+        "hermes-kanban-operations"
+      ],
+      "body": "Wave: 1 runtime adapter.\nGoal: build the OpenClaw-specific scaffold and user surfaces over the shared client without duplicating platform or protocol logic.\n\nScope:\n- exact package directory/repository decision, pinned supported OpenClaw/plugin-API range, openclaw.plugin.json, compiled entry, build/lockfile ownership;\n- cmai pair/status/feed/run/preview/submit/discard/revoke/update/help commands/tools;\n- contribution skill, explicit enable/allowlist states, shared-client delegation, uninstall path.\n\nDoes not own platform endpoints, shared orchestration, bounded inference (Card 07A), or Challenge Steward implementation/bundling (Card 11).\n\nAcceptance:\n- clean isolated-profile build/manifest/runtime inspection passes;\n- disabled, unconfigured, incompatible, and allowlist-denied states fail clearly;\n- no ambient config enumeration, provider credential access, background service, or lifecycle network call;\n- every surface delegates to the shared core.\n\nBoundaries: no public package, ClawHub/npm publish, Gateway restart, provider auth, or real model call without explicit approval."
+    },
+    {
+      "id": "t_b6cba30b",
+      "type": "Revalidation",
+      "title": "REVALIDATE t_18a5691c impact cfd4b790da84",
+      "status": "done",
+      "priority": 921,
+      "assignee": "alex",
+      "skills": [
+        "challenge-ai",
+        "hermes-kanban-operations"
+      ],
+      "body": "Change-impact control card generated by scripts/kanban-impact.py.\n\nSource task: t_18a5691c — 05A P0 — Build the CMAI OpenClaw adapter scaffold\nFingerprint: cfd4b790da846016bd7736881b0916e7e16c900f176469cd41c27025a852a58d\nReason: Implement the bounded native OpenClaw adapter scaffold, then harden direct run approval, private-key state permissions, ambient environment isolation, and streamed response limits during autonomous review.\nChanged paths: packages/cmai-openclaw-adapter/README.md, packages/cmai-openclaw-adapter/package-lock.json, packages/cmai-openclaw-adapter/package.json, packages/cmai-openclaw-adapter/scripts/stage-local.ts, packages/cmai-openclaw-adapter/src/constants.ts, packages/cmai-openclaw-adapter/src/controller.test.ts, packages/cmai-openclaw-adapter/src/controller.ts, packages/cmai-openclaw-adapter/src/cryptoSigner.ts, packages/cmai-openclaw-adapter/src/index.ts, packages/cmai-openclaw-adapter/src/manifest.test.ts, packages/cmai-openclaw-adapter/src/plugin.test.ts, packages/cmai-openclaw-adapter/src/plugin.ts, packages/cmai-openclaw-adapter/src/runtime.ts, packages/cmai-openclaw-adapter/src/stateStore.test.ts, packages/cmai-openclaw-adapter/src/stateStore.ts, packages/cmai-openclaw-adapter/src/telemetry.test.ts, packages/cmai-openclaw-adapter/src/telemetry.ts, packages/cmai-openclaw-adapter/src/transport.test.ts, packages/cmai-openclaw-adapter/src/transport.ts, packages/cmai-openclaw-adapter/tsconfig.json, plugins/cmai-openclaw/README.md, plugins/cmai-openclaw/openclaw.plugin.json, plugins/cmai-openclaw/skills/cmai-contribution/SKILL.md\nChanged contracts: openclaw-adapter, openclaw-command-surface, openclaw-package-proof\n\nImpacted evidence/tasks:\n- t_1c434d70 [todo]: downstream-of:t_18a5691c\n- t_552cc1e6 [todo]: downstream-of:t_18a5691c\n- t_a4598966 [todo]: consumes-contract:openclaw-adapter, downstream-of:t_18a5691c\n- t_b7e8bef6 [todo]: downstream-of:t_18a5691c\n- t_3ac1c501 [todo]: downstream-of:t_18a5691c\n- t_f1a2a554 [todo]: downstream-of:t_18a5691c\n- t_14e81d5f [todo]: consumes-contract:openclaw-adapter, downstream-of:t_18a5691c, owns-contract:openclaw-package-proof, owns-path:packages/cmai-openclaw-adapter/package.json, owns-path:packages/cmai-openclaw-adapter/scripts/stage-local.ts\n- t_73821509 [todo]: downstream-of:t_18a5691c\n- t_0e392c87 [todo]: downstream-of:t_18a5691c\n- t_2f8c9fda [todo]: consumes-contract:openclaw-adapter, downstream-of:t_18a5691c\n- t_288fec21 [todo]: downstream-of:t_18a5691c\n- t_fb4b96de [todo]: downstream-of:t_18a5691c\n- t_cf615f55 [todo]: downstream-of:t_18a5691c\n- t_f8a36a53 [todo]: downstream-of:t_18a5691c\n- t_d66b810c [todo]: consumes-contract:openclaw-package-proof, downstream-of:t_18a5691c\n- t_fa5f31d8 [todo]: downstream-of:t_18a5691c\n- t_c284c0f0 [todo]: downstream-of:t_18a5691c\n- t_884b69f8 [todo]: downstream-of:t_18a5691c\n- t_7000ac7d [todo]: downstream-of:t_18a5691c\n- t_2d234113 [todo]: downstream-of:t_18a5691c\n- t_b5943d17 [todo]: downstream-of:t_18a5691c\n- t_319db1a9 [todo]: downstream-of:t_18a5691c\n- t_da8dc3f1 [todo]: downstream-of:t_18a5691c\n- t_19c60b0c [todo]: downstream-of:t_18a5691c\n- t_28f0778f [todo]: downstream-of:t_18a5691c\n- t_3959adb0 [todo]: downstream-of:t_18a5691c\n- t_35d870c0 [todo]: downstream-of:t_18a5691c\n- t_7c631777 [todo]: downstream-of:t_18a5691c\n- t_67640478 [todo]: downstream-of:t_18a5691c\n- t_3c376ee8 [todo]: downstream-of:t_18a5691c\n- t_203e225f [todo]: downstream-of:t_18a5691c, mandatory-final-gate\n- t_e789e104 [todo]: consumes-contract:openclaw-package-proof, downstream-of:t_18a5691c, mandatory-final-gate\n- t_342bea58 [todo]: downstream-of:t_18a5691c, mandatory-final-gate\n- t_f83e7414 [todo]: downstream-of:t_18a5691c, mandatory-final-gate\n\nRequired before completion:\n1. Re-read the source HANDOFF and every impacted card's latest HANDOFF.\n2. Update affected specs, contracts, tests, and task bodies/comments.\n3. Rerun proofs for every completed impacted card; do not rewrite its history.\n4. Post a revalidation matrix with old/new artifact hashes, test results, and remaining blocked cards.\n5. Complete this card only after ORCH confirms all linked children consume current evidence.\n\nNo deploy, publish, external send, provider authentication, or production mutation."
+    },
+    {
+      "id": "t_1c434d70",
+      "type": "Roadmap",
+      "title": "06 P0 — Build the public scoped Agent challenge feed",
+      "status": "done",
+      "priority": 920,
+      "assignee": "alex",
+      "skills": [
+        "challenge-ai",
+        "hermes-kanban-operations"
+      ],
+      "body": "Wave: 1 platform service.\nGoal: expose compact, versioned challenge bundles to scoped paired clients using the canonical intent/criteria/reward posture.\n\nOwns:\n- public feed endpoint, authentication/scope/revocation, filters, pagination, size/query limits, bundle nonce/audience/expiry, stable errors, and platform persistence/query policy.\n\nV1 returns only published, unsuppressed, public challenges. Private/member-gated/deep challenge data is excluded unconditionally pending a separate product decision.\n\nAcceptance:\n- bundles contain only required prompt context, intent, criteria, requested perspectives, constraints, safety, declarative reward posture, current state, nonce, and expiry;\n- IDOR, foreign/revoked client, suppressed/deleted transition, pagination stability, hostile delimiter, oversized/query-complexity, and log/URL leakage tests pass;\n- no secrets, credentials, private drafts, raw artifacts, or arbitrary URLs appear.\n\nBoundaries: no private-room expansion or arbitrary content retrieval."
+    },
+    {
+      "id": "t_552cc1e6",
+      "type": "Roadmap",
+      "title": "07 P0 — Run one bounded Hermes inference call",
+      "status": "done",
+      "priority": 910,
+      "assignee": "alex",
+      "skills": [
+        "challenge-ai",
+        "hermes-kanban-operations"
+      ],
+      "body": "Wave: 1 Hermes inference seam.\nGoal: invoke exactly one explicitly approved bounded Hermes completion and return CMAI_CONTRIBUTION_CARD_V1.\n\nScope:\n- ctx.llm.complete_structured() only;\n- approval bound to challenge version, nonce, active local model/profile choice, maximum output/token budget, and displayed cost uncertainty;\n- cancellation, timeout, malformed output, oversized output, provider failure, and redacted safe metadata.\n\nAcceptance:\n- instrumented fake host proves one completion and zero tools, memory retrieval, files, URLs, browser, shell, hooks, ambient conversation, or silent retries;\n- prompt-injection corpus remains inert;\n- cancel-before-dispatch and cancel-during-call clean up;\n- model/provider override requests are rejected;\n- real inference requires separate current spend approval.\n\nBoundaries: no tools, memory, files, browser, shell, provider auth, or automatic execution."
+    },
+    {
+      "id": "t_a4598966",
+      "type": "Roadmap",
+      "title": "07A P0 — Run one bounded OpenClaw inference call",
+      "status": "blocked",
+      "priority": 900,
+      "assignee": "alex",
+      "skills": [
+        "challenge-ai",
+        "hermes-kanban-operations"
+      ],
+      "body": "Wave: 1 OpenClaw inference seam.\nGoal: invoke exactly one explicitly approved bounded OpenClaw completion with behavior equivalent to Hermes.\n\nScope:\n- pin the supported api.runtime.llm.complete() API/version after checking the installed supported runtime;\n- approval bound to challenge version, nonce, active local model, maximum output/token budget, and cost uncertainty;\n- structured validation in the shared client;\n- cancellation, timeout, missing model, malformed/oversized output, provider failure, and safe metadata allowlist.\n\nAcceptance:\n- instrumented isolated runtime proves one completion and zero tools, hooks, memory, files, browser, shell, services, background execution, or ambient config enumeration;\n- hostile prompt and recursive secret-canary tests pass;\n- no provider credential is visible to the adapter;\n- real inference or Gateway restart requires separate approval.\n\nBoundaries: inference seam only; no pairing/feed/submission reimplementation."
+    },
+    {
+      "id": "t_7de561af",
+      "type": "Revalidation",
+      "title": "REVALIDATE t_a4598966 impact bd816288b30f",
+      "status": "blocked",
+      "priority": 891,
+      "assignee": "alex",
+      "skills": [
+        "challenge-ai",
+        "hermes-kanban-operations"
+      ],
+      "body": "Change-impact control card generated by scripts/kanban-impact.py.\n\nSource task: t_a4598966 — 07A P0 — Run one bounded OpenClaw inference call\nFingerprint: bd816288b30fe23c484611bac6edde35a06bba9afbe6389a1b7f67362b7a9ace\nReason: Card 07A required durable cross-command consent, session-bound/default-Agent OpenClaw inference, and canonical Agent Protocol transport wiring\nChanged paths: CHANGELOG.md, packages/cmai-openclaw-adapter/README.md, packages/cmai-openclaw-adapter/src/controller.test.ts, packages/cmai-openclaw-adapter/src/controller.ts, packages/cmai-openclaw-adapter/src/index.ts, packages/cmai-openclaw-adapter/src/inference.ts, packages/cmai-openclaw-adapter/src/plugin.ts, packages/cmai-openclaw-adapter/src/runtime.integration.test.ts, packages/cmai-openclaw-adapter/src/runtime.ts, packages/cmai-openclaw-adapter/src/stateStore.test.ts, packages/cmai-openclaw-adapter/src/stateStore.ts, packages/cmai-openclaw-adapter/src/transport.test.ts, packages/cmai-openclaw-adapter/src/transport.ts\nChanged contracts: agent-feed, agent-protocol-state-migration, authenticated-edge-rate-boundary, board-governance, impact-map, openclaw-adapter, openclaw-bounded-inference, openclaw-command-surface\n\nImpacted evidence/tasks:\n- t_b5be70d2 [done]: consumes-contract:board-governance, consumes-contract:impact-map\n- t_18a5691c [done]: owns-contract:openclaw-adapter, owns-contract:openclaw-command-surface, owns-path:packages/cmai-openclaw-adapter/README.md, owns-path:packages/cmai-openclaw-adapter/src/controller.test.ts, owns-path:packages/cmai-openclaw-adapter/src/controller.ts, owns-path:packages/cmai-openclaw-adapter/src/index.ts, owns-path:packages/cmai-openclaw-adapter/src/inference.ts, owns-path:packages/cmai-openclaw-adapter/src/plugin.ts, owns-path:packages/cmai-openclaw-adapter/src/runtime.integration.test.ts, owns-path:packages/cmai-openclaw-adapter/src/runtime.ts, owns-path:packages/cmai-openclaw-adapter/src/stateStore.test.ts, owns-path:packages/cmai-openclaw-adapter/src/stateStore.ts, owns-path:packages/cmai-openclaw-adapter/src/transport.test.ts, owns-path:packages/cmai-openclaw-adapter/src/transport.ts\n- t_1c434d70 [done]: owns-contract:agent-feed, owns-contract:agent-protocol-state-migration, owns-contract:authenticated-edge-rate-boundary, owns-path:CHANGELOG.md\n- t_552cc1e6 [done]: consumes-contract:agent-feed\n- t_b7e8bef6 [todo]: consumes-contract:openclaw-bounded-inference, downstream-of:t_a4598966\n- t_3ac1c501 [todo]: downstream-of:t_a4598966\n- t_f1a2a554 [todo]: downstream-of:t_a4598966\n- t_14e81d5f [todo]: consumes-contract:openclaw-adapter, consumes-contract:openclaw-bounded-inference, downstream-of:t_a4598966\n- t_73821509 [todo]: downstream-of:t_a4598966\n- t_0e392c87 [todo]: downstream-of:t_a4598966\n- t_2f8c9fda [todo]: consumes-contract:openclaw-adapter, downstream-of:t_a4598966\n- t_288fec21 [todo]: downstream-of:t_a4598966\n- t_fb4b96de [todo]: downstream-of:t_a4598966\n- t_cf615f55 [todo]: downstream-of:t_a4598966\n- t_f8a36a53 [todo]: downstream-of:t_a4598966\n- t_d66b810c [todo]: downstream-of:t_a4598966\n- t_fa5f31d8 [todo]: downstream-of:t_a4598966\n- t_c284c0f0 [todo]: downstream-of:t_a4598966\n- t_884b69f8 [todo]: downstream-of:t_a4598966\n- t_7000ac7d [todo]: downstream-of:t_a4598966\n- t_2d234113 [todo]: downstream-of:t_a4598966\n- t_b5943d17 [todo]: downstream-of:t_a4598966\n- t_319db1a9 [todo]: downstream-of:t_a4598966\n- t_da8dc3f1 [todo]: downstream-of:t_a4598966\n- t_19c60b0c [todo]: downstream-of:t_a4598966\n- t_28f0778f [todo]: downstream-of:t_a4598966\n- t_3959adb0 [todo]: downstream-of:t_a4598966\n- t_35d870c0 [todo]: downstream-of:t_a4598966\n- t_7c631777 [todo]: downstream-of:t_a4598966\n- t_67640478 [todo]: downstream-of:t_a4598966\n- t_3c376ee8 [todo]: downstream-of:t_a4598966\n- t_203e225f [todo]: downstream-of:t_a4598966, mandatory-final-gate\n- t_e789e104 [todo]: downstream-of:t_a4598966, mandatory-final-gate\n- t_342bea58 [todo]: downstream-of:t_a4598966, mandatory-final-gate\n- t_f83e7414 [todo]: downstream-of:t_a4598966, mandatory-final-gate\n\nRequired before completion:\n1. Re-read the source HANDOFF and every impacted card's latest HANDOFF.\n2. Update affected specs, contracts, tests, and task bodies/comments.\n3. Rerun proofs for every completed impacted card; do not rewrite its history.\n4. Post a revalidation matrix with old/new artifact hashes, test results, and remaining blocked cards.\n5. Complete this card only after ORCH confirms all linked children consume current evidence.\n\nNo deploy, publish, external send, provider authentication, or production mutation."
+    },
+    {
+      "id": "t_310d1a0a",
+      "type": "Revalidation",
+      "title": "REVALIDATE t_a4598966 impact 540a763dd5d6",
+      "status": "blocked",
+      "priority": 891,
+      "assignee": "alex",
+      "skills": [
+        "challenge-ai",
+        "hermes-kanban-operations"
+      ],
+      "body": "Change-impact control card generated by scripts/kanban-impact.py.\n\nSource task: t_a4598966 — 07A P0 — Run one bounded OpenClaw inference call\nFingerprint: 540a763dd5d634ed2aff36d511df365a0f4f376fc2d33cac029ad66c0fda93b0\nReason: Card 07A added exact challenge-content approval binding, explicit CLI target binding, CAS-safe pairing/preview cleanup, fail-safe lock recovery, and corrected shipped guidance after immutable review.\nChanged paths: CHANGELOG.md, packages/cmai-openclaw-adapter/README.md, packages/cmai-openclaw-adapter/src/controller.test.ts, packages/cmai-openclaw-adapter/src/controller.ts, packages/cmai-openclaw-adapter/src/index.ts, packages/cmai-openclaw-adapter/src/inference.test.ts, packages/cmai-openclaw-adapter/src/inference.ts, packages/cmai-openclaw-adapter/src/manifest.test.ts, packages/cmai-openclaw-adapter/src/plugin.ts, packages/cmai-openclaw-adapter/src/runtime.integration.test.ts, packages/cmai-openclaw-adapter/src/runtime.ts, packages/cmai-openclaw-adapter/src/stateStore.test.ts, packages/cmai-openclaw-adapter/src/stateStore.ts, packages/cmai-openclaw-adapter/src/transport.test.ts, packages/cmai-openclaw-adapter/src/transport.ts, plugins/cmai-openclaw/skills/cmai-contribution/SKILL.md\nChanged contracts: agent-feed, agent-protocol-state-migration, authenticated-edge-rate-boundary, board-governance, impact-map, openclaw-adapter, openclaw-bounded-inference, openclaw-command-surface\n\nImpacted evidence/tasks:\n- t_b5be70d2 [done]: consumes-contract:board-governance, consumes-contract:impact-map\n- t_18a5691c [done]: owns-contract:openclaw-adapter, owns-contract:openclaw-command-surface, owns-path:packages/cmai-openclaw-adapter/README.md, owns-path:packages/cmai-openclaw-adapter/src/controller.test.ts, owns-path:packages/cmai-openclaw-adapter/src/controller.ts, owns-path:packages/cmai-openclaw-adapter/src/index.ts, owns-path:packages/cmai-openclaw-adapter/src/inference.test.ts, owns-path:packages/cmai-openclaw-adapter/src/inference.ts, owns-path:packages/cmai-openclaw-adapter/src/manifest.test.ts, owns-path:packages/cmai-openclaw-adapter/src/plugin.ts, owns-path:packages/cmai-openclaw-adapter/src/runtime.integration.test.ts, owns-path:packages/cmai-openclaw-adapter/src/runtime.ts, owns-path:packages/cmai-openclaw-adapter/src/stateStore.test.ts, owns-path:packages/cmai-openclaw-adapter/src/stateStore.ts, owns-path:packages/cmai-openclaw-adapter/src/transport.test.ts, owns-path:packages/cmai-openclaw-adapter/src/transport.ts, owns-path:plugins/cmai-openclaw/skills/cmai-contribution/SKILL.md\n- t_1c434d70 [done]: owns-contract:agent-feed, owns-contract:agent-protocol-state-migration, owns-contract:authenticated-edge-rate-boundary, owns-path:CHANGELOG.md\n- t_552cc1e6 [done]: consumes-contract:agent-feed\n- t_b7e8bef6 [todo]: consumes-contract:openclaw-bounded-inference, downstream-of:t_a4598966\n- t_3ac1c501 [todo]: downstream-of:t_a4598966\n- t_f1a2a554 [todo]: downstream-of:t_a4598966\n- t_14e81d5f [todo]: consumes-contract:openclaw-adapter, consumes-contract:openclaw-bounded-inference, downstream-of:t_a4598966\n- t_73821509 [todo]: downstream-of:t_a4598966\n- t_0e392c87 [todo]: downstream-of:t_a4598966\n- t_2f8c9fda [todo]: consumes-contract:openclaw-adapter, downstream-of:t_a4598966\n- t_288fec21 [todo]: downstream-of:t_a4598966\n- t_fb4b96de [todo]: downstream-of:t_a4598966\n- t_cf615f55 [todo]: downstream-of:t_a4598966\n- t_f8a36a53 [todo]: downstream-of:t_a4598966\n- t_d66b810c [todo]: downstream-of:t_a4598966\n- t_fa5f31d8 [todo]: downstream-of:t_a4598966\n- t_c284c0f0 [todo]: downstream-of:t_a4598966\n- t_884b69f8 [todo]: downstream-of:t_a4598966\n- t_7000ac7d [todo]: downstream-of:t_a4598966\n- t_2d234113 [todo]: downstream-of:t_a4598966\n- t_b5943d17 [todo]: downstream-of:t_a4598966\n- t_319db1a9 [todo]: downstream-of:t_a4598966\n- t_da8dc3f1 [todo]: downstream-of:t_a4598966\n- t_19c60b0c [todo]: downstream-of:t_a4598966\n- t_28f0778f [todo]: downstream-of:t_a4598966\n- t_3959adb0 [todo]: downstream-of:t_a4598966\n- t_35d870c0 [todo]: downstream-of:t_a4598966\n- t_7c631777 [todo]: downstream-of:t_a4598966\n- t_67640478 [todo]: downstream-of:t_a4598966\n- t_3c376ee8 [todo]: downstream-of:t_a4598966\n- t_203e225f [todo]: downstream-of:t_a4598966, mandatory-final-gate\n- t_e789e104 [todo]: downstream-of:t_a4598966, mandatory-final-gate\n- t_342bea58 [todo]: downstream-of:t_a4598966, mandatory-final-gate\n- t_f83e7414 [todo]: downstream-of:t_a4598966, mandatory-final-gate\n\nRequired before completion:\n1. Re-read the source HANDOFF and every impacted card's latest HANDOFF.\n2. Update affected specs, contracts, tests, and task bodies/comments.\n3. Rerun proofs for every completed impacted card; do not rewrite its history.\n4. Post a revalidation matrix with old/new artifact hashes, test results, and remaining blocked cards.\n5. Complete this card only after ORCH confirms all linked children consume current evidence.\n\nNo deploy, publish, external send, provider authentication, or production mutation."
+    },
+    {
+      "id": "t_b7e8bef6",
+      "type": "Roadmap",
+      "title": "08 P0 — Build preview, submit, retry, and discard",
+      "status": "todo",
+      "priority": 890,
+      "assignee": "alex",
+      "skills": [
+        "challenge-ai",
+        "hermes-kanban-operations"
+      ],
+      "body": "Wave: 1 shared submission flow.\nGoal: keep the contributor in control between local inference and public submission while enforcing the final envelope server-side.\n\nOwns:\n- platform contribution endpoint, authorization, nonce/challenge-version/card-hash/client/idempotency binding, privileged-field normalization, and durable exact-once submission;\n- shared-client preview/edit/rerun/discard/retry integration.\n\nAcceptance:\n- every run requires preview before submission;\n- human edits are marked edited_after_run and never imply unmodified model output;\n- same key/same body returns the original result; same key/different body conflicts; parallel and timeout-after-commit retries do not duplicate;\n- discard sends no contribution body or telemetry;\n- expired/revoked/stale challenge versions require a fresh approval/run;\n- client-supplied trust tiers and privileged provenance are stripped/downgraded.\n\nBoundaries: no public submission before explicit confirmation; no runtime-specific orchestration in platform code."
+    },
+    {
+      "id": "t_3ac1c501",
+      "type": "Roadmap",
+      "title": "09 P0 — Add paired local Agent provenance and inspection",
+      "status": "todo",
+      "priority": 880,
+      "assignee": "alex",
+      "skills": [
+        "challenge-ai",
+        "hermes-kanban-operations"
+      ],
+      "body": "Wave: 1 provenance.\nGoal: preserve honest paired-local evidence without turning runtime metadata into remote attestation.\n\nScope:\n- separate private audit evidence from public normalized provenance DTOs;\n- self_submitted/manual, paired_hermes_plugin, paired_openclaw_plugin, and cmai_sandbox_run tiers;\n- adapter/runtime version, edited-after-run state, revocation/deletion display, and human-readable explanation.\n\nAcceptance:\n- public DTO allowlist exposes no stable device ID, raw audit ID, account label, correlatable prompt hash, provider response, secret, or unnecessary exact timestamp;\n- forged runtime/provider/model/usage data remains informational and cannot promote trust;\n- synthesis/archive/profile rendering preserves or downgrades trust but never silently upgrades it;\n- suppression/deletion/revocation cases do not leak private audit evidence.\n\nBoundaries: no provider-verified, cryptographically attested, or fully-trusted claim from paired local evidence alone."
+    },
+    {
+      "id": "t_f1a2a554",
+      "type": "Roadmap",
+      "title": "09A P0 — Package, install, and release-proof the Hermes adapter",
+      "status": "todo",
+      "priority": 870,
+      "assignee": "alex",
+      "skills": [
+        "challenge-ai",
+        "hermes-kanban-operations"
+      ],
+      "body": "Wave: 1 — Hermes release proof.\nGoal: prove the exact Hermes adapter artifact a user would install before using it in the private Hermes end-to-end proof.\n\nScope:\n- clean build and packed artifact contents;\n- supported Hermes version range and compatibility metadata;\n- install into a disposable isolated Hermes profile/home;\n- inspect registered commands, skills, status, preview/discard, revoke, and disabled states;\n- update/downgrade/uninstall/reinstall behavior;\n- checksum, dependency inventory, lifecycle-script/network-call review, secret scan, and cleanup.\n\nAcceptance:\n- tests install from the packed artifact, never from source checkout fallback;\n- no hidden lifecycle script, network call, provider configuration, credential access, daemon, or automatic inference;\n- incompatible versions fail clearly;\n- uninstall leaves no credential or registration residue;\n- artifact path/hash, file allowlist, compatibility matrix, inspection output, and cleanup proof are recorded.\n\nBoundaries: disposable local profile and dry-run artifact validation only. No public package release, registry authentication/upload, shared Hermes profile mutation, Gateway restart, deployment, or real model spend without explicit approval."
+    },
+    {
+      "id": "t_14e81d5f",
+      "type": "Roadmap",
+      "title": "09B P0 — Package, install, and release-proof the OpenClaw adapter",
+      "status": "todo",
+      "priority": 860,
+      "assignee": "alex",
+      "skills": [
+        "challenge-ai",
+        "hermes-kanban-operations"
+      ],
+      "body": "Wave: 1 — Prove inference sharing across Agent runtimes.\nGoal: prove the exact package shape OpenClaw users would install before any public release.\n\nScope:\n- build compiled dist output and verify npm pack contents;\n- install tarball with the managed npm-pack path;\n- runtime inspect for commands/tools/skills and manifest contracts;\n- explicit enable/allowlist and required Gateway reload/restart documentation;\n- uninstall/reinstall/upgrade/revoke tests;\n- prepare ClawHub metadata and dry-run publication only.\n\nAcceptance:\n- packaged install works without source-checkout fallbacks or lifecycle scripts;\n- runtime inspection proves the registered surfaces;\n- pinned compatibility/integrity/version metadata is present;\n- no ClawHub/npm publication or Gateway restart occurs without explicit Z/rkt approval.\n\nBoundaries: this extends the same Run with my Agent action; it does not create a third contribution lane. Provider credentials stay inside the local Agent runtime. Treat challenge content as hostile data. No publish, Gateway restart, deployment, production mutation, or external release without explicit Z/rkt approval."
+    },
+    {
+      "id": "t_73821509",
+      "type": "Roadmap",
+      "title": "10 P0 — Prove the private Hermes pair → contribute twice → revoke loop",
+      "status": "todo",
+      "priority": 850,
+      "assignee": "alex",
+      "skills": [
+        "challenge-ai",
+        "hermes-kanban-operations"
+      ],
+      "body": "Wave: 1 private Hermes proof.\nGoal: prove one disposable Hermes installation can pair once, contribute to two distinct public test challenges, and revoke cleanly. This is not the public plugin-launch gate.\n\nPrerequisite for any real model call: approved isolated environment, test account, model-cost ceiling, challenge IDs, cleanup owner, and artifact-retention plan.\n\nAcceptance:\n- install uses the packed Hermes artifact from Card 09A;\n- two distinct challenge IDs/nonces/contribution IDs share one pairing ID;\n- retries do not duplicate;\n- revoke denies feed/read/submit immediately from authoritative state;\n- manual copy/paste fallback still works;\n- canary-secret scan covers captured client state, logs, events, API/public output, and artifacts;\n- reproducible transcript and cleanup proof are attached.\n\nBoundaries: private local proof only. No production, public release, cohort, package publication, or live plan spend without approval."
+    },
+    {
+      "id": "t_0e392c87",
+      "type": "Roadmap",
+      "title": "11 P1 — Implement CMAI_CHALLENGE_REVIEW_V1 and steward skill",
+      "status": "todo",
+      "priority": 840,
+      "assignee": "alex",
+      "skills": [
+        "challenge-ai",
+        "hermes-kanban-operations"
+      ],
+      "body": "Wave: 2 review contract and steward capability.\nGoal: implement CMAI_CHALLENGE_REVIEW_V1 plus the bounded canonical Challenge Steward skill/service independently of runtime packaging.\n\nScope:\n- strict two-stage signal/outcome review schema;\n- impact tiers no_value, signal, useful, material, decisive, plus pending_validation;\n- duplicate/unsafe/disagreement handling, confidence, minimal answer patch, lifecycle recommendation, point recommendation, host_confirmation_required=true;\n- bounded structured inputs only, no arbitrary tools/URLs;\n- canonical skill instructions/schema/version consumed by Card 11A.\n\nAcceptance:\n- contract validation and policy post-processing are deterministic; model prose need not be byte-identical;\n- forged/missing confirmation flags, unknown fields/enums, hostile nested content, missing criteria, unavailable model, and all impact cases are tested;\n- consequential outputs remain recommendations and cannot mutate reward, answer, lifecycle, suppression, or settlement;\n- canonical artifacts are runtime-neutral and have one version/fixture corpus.\n\nBoundaries: the Steward recommends; the human poster confirms. Adapter integration belongs to Card 11A."
+    },
+    {
+      "id": "t_2f8c9fda",
+      "type": "Roadmap",
+      "title": "11A P1 — Bundle the same Steward contract into both adapters",
+      "status": "todo",
+      "priority": 835,
+      "assignee": "alex",
+      "skills": [
+        "challenge-ai",
+        "hermes-kanban-operations"
+      ],
+      "body": "Wave: 2 adapter integration.\nGoal: integrate the canonical Challenge Steward skill into both adapter package sources with one shared contract/version and no runtime-specific policy fork.\n\nScope:\n- Hermes and OpenClaw bundled-skill files and manifest registration;\n- shared steward schema/version metadata;\n- runtime-specific invocation wrapper only;\n- disabled/unavailable-model/manual-review fallback;\n- package build fixtures and conformance manifest update.\n\nAcceptance:\n- both package sources expose byte-equivalent canonical steward instructions/schema/version except documented runtime registration glue;\n- no adapter can mutate reward, answer, lifecycle, suppression, or settlement without separately authorized poster commands;\n- unavailable-model behavior preserves manual review;\n- clean package builds and manifest inspections pass for both runtimes;\n- conformance fixtures assert the same steward version/contract.\n\nBoundaries: packaging/integration only. No new review policy, live model call, external publication, or shared-runtime mutation."
+    },
+    {
+      "id": "t_288fec21",
+      "type": "Roadmap",
+      "title": "12 P1 — Build poster review and confirmation workflow",
+      "status": "todo",
+      "priority": 830,
+      "assignee": "alex",
+      "skills": [
+        "challenge-ai",
+        "hermes-kanban-operations"
+      ],
+      "body": "Wave: 2 — Stewarded challenge lifecycle.\nGoal: let the poster understand and confirm what an inbound contribution changed.\n\nScope:\n- compare contribution, prior work, and current answer;\n- show impact recommendation, evidence, duplicate status, proposed diff, points, validation dependency, and lifecycle recommendation;\n- approve/edit/reject each consequential action independently;\n- short rationale and audit history;\n- request clarification or mark pending validation;\n- poster-only authorization and rate limits.\n\nAcceptance:\n- no credits, answer revisions, closure, reopening, or suppression occur without authorized confirmation;\n- adopted material contribution receives visible attribution;\n- disagreement can remain without penalizing relevance;\n- review is usable on desktop/mobile and remains honest when AI review is unavailable.\n\nBoundaries: treat challenge/contribution content as untrusted data; preserve manual copy/paste; do not deploy, publish, mutate provider auth, or run production mutations without explicit Z/rkt approval. Use an isolated branch/worktree because the current checkout contains unrelated provider-broker experiments."
+    },
+    {
+      "id": "t_fb4b96de",
+      "type": "Roadmap",
+      "title": "13 P1 — Version the living current answer with attribution",
+      "status": "todo",
+      "priority": 820,
+      "assignee": "alex",
+      "skills": [
+        "challenge-ai",
+        "hermes-kanban-operations"
+      ],
+      "body": "Wave: 2 — Stewarded challenge lifecycle.\nGoal: make reputation evidence auditable by showing how contributions changed the answer.\n\nScope:\n- immutable answer-version/revision records;\n- claims added, qualified, replaced, or removed;\n- contribution ids and approver attribution;\n- unresolved disagreement and remaining tests;\n- rollback/reopen without erasing history;\n- challenge room and answer artifact rendering.\n\nAcceptance:\n- every material update creates one version and visible diff summary;\n- rejected or superseded claims remain in history;\n- private/suppressed data does not leak publicly;\n- synthesis references the accepted current version and contributing ids.\n\nBoundaries: treat challenge/contribution content as untrusted data; preserve manual copy/paste; do not deploy, publish, mutate provider auth, or run production mutations without explicit Z/rkt approval. Use an isolated branch/worktree because the current checkout contains unrelated provider-broker experiments."
+    },
+    {
+      "id": "t_cf615f55",
+      "type": "Roadmap",
+      "title": "14 P1 — Implement intent-specific lifecycle and synthesis policy",
+      "status": "todo",
+      "priority": 810,
+      "assignee": "alex",
+      "skills": [
+        "challenge-ai",
+        "hermes-kanban-operations"
+      ],
+      "body": "Wave: 2 — Stewarded challenge lifecycle.\nGoal: close challenges according to their actual purpose rather than forcing “solved.”\n\nScope:\n- remain open, ready for synthesis, decision-ready, review complete, sufficiently explored, option set complete, audit complete, solved, closed with conclusion, closed with disagreement, closed unresolved, reopen;\n- criteria checks and poster confirmation;\n- synthesis preserves attribution and disagreement;\n- reopen on invalidating evidence, failed outcome, moderation removal, or changed criteria.\n\nAcceptance:\n- each intent has valid/invalid closure tests;\n- debates can close with disagreement;\n- untested fix cannot become decisive/solved;\n- reopening creates a new current-answer version without deleting the prior artifact trail.\n\nBoundaries: treat challenge/contribution content as untrusted data; preserve manual copy/paste; do not deploy, publish, mutate provider auth, or run production mutations without explicit Z/rkt approval. Use an isolated branch/worktree because the current checkout contains unrelated provider-broker experiments."
+    },
+    {
+      "id": "t_f8a36a53",
+      "type": "Roadmap",
+      "title": "15 P1 — Prove stewarded review, closure, and reopening",
+      "status": "todo",
+      "priority": 800,
+      "assignee": "alex",
+      "skills": [
+        "challenge-ai",
+        "hermes-kanban-operations"
+      ],
+      "body": "Wave: 2 — Stewarded challenge lifecycle.\nGoal: prove the human-confirmed steward loop across several challenge intents.\n\nScope:\n- signal, useful, material, decisive, duplicate, disagreement, pending-validation, and unsafe fixtures;\n- poster edits steward recommendations;\n- attributed answer updates;\n- decision-ready, sufficiently explored, solved, closed-with-disagreement, and reopen paths;\n- manual and paired-plugin contributions.\n\nAcceptance:\n- no autonomous consequential action;\n- every reward/revision/state transition is owner-authorized and idempotent;\n- final artifacts preserve attribution and dissent;\n- regression evidence covers API, store, UI, and synthesis layers.\n\nBoundaries: treat challenge/contribution content as untrusted data; preserve manual copy/paste; do not deploy, publish, mutate provider auth, or run production mutations without explicit Z/rkt approval. Use an isolated branch/worktree because the current checkout contains unrelated provider-broker experiments."
+    },
+    {
+      "id": "t_d66b810c",
+      "type": "Roadmap",
+      "title": "16 P0 — Pass the sole Hermes/OpenClaw public-launch conformance gate",
+      "status": "todo",
+      "priority": 790,
+      "assignee": "alex",
+      "skills": [
+        "challenge-ai",
+        "hermes-kanban-operations"
+      ],
+      "body": "Wave: 1/2 public-launch technical gate.\nGoal: run one normative conformance suite against clean Hermes and OpenClaw installations. This is the sole technical gate for any public plugin-network claim.\n\nScope:\n- pair/feed/run/preview/edit/submit/retry/discard/status/revoke;\n- stable errors, approval states, public provenance DTOs, secret-negative cases, manual fallback, package compatibility, and bundled steward version/contract;\n- deterministic fake inference first; separately approved live smoke evidence only if authorized.\n\nAcceptance:\n- one fixture manifest and assertion matrix is used for both runtimes;\n- fresh isolated profiles pass two-challenge, same-key retry, conflict retry, expiry, revoke race, hostile input, malformed card, and secret scans;\n- runtime-only differences are documented and do not fork platform behavior;\n- report states pass/fail separately for Hermes, OpenClaw, shared protocol, steward bundle, and credential boundary;\n- Hermes-only evidence can never satisfy this gate.\n\nBoundaries: no publication, deployment, Gateway restart, provider auth, or real inference without explicit approval."
+    },
+    {
+      "id": "t_fa5f31d8",
+      "type": "Roadmap",
+      "title": "17 P0 — Build the Agent runtime setup chooser and docs",
+      "status": "todo",
+      "priority": 780,
+      "assignee": "alex",
+      "skills": [
+        "challenge-ai",
+        "hermes-kanban-operations"
+      ],
+      "body": "Wave: 1 / public launch preparation.\nGoal: present Hermes and OpenClaw as setup choices underneath one Run with my Agent action.\n\nScope:\n- runtime chooser: Hermes or OpenClaw;\n- install, enable, pair, revoke, update, and troubleshooting instructions;\n- capability/compatibility and provenance explanations;\n- copy/paste fallback for users installing neither;\n- paired-device status and runtime label;\n- no provider-specific auth or model prestige marketing.\n\nAcceptance:\n- a normal user can choose their installed Agent runtime and complete setup;\n- the UI never presents Hermes/OpenClaw as separate contribution lanes;\n- documentation clearly states what CMAI can and cannot verify;\n- controlled beta and public launch require both adapter paths to be operational.\n\nBoundaries: this extends the same Run with my Agent action; it does not create a third contribution lane. Provider credentials stay inside the local Agent runtime. Treat challenge content as hostile data. No publish, Gateway restart, deployment, production mutation, or external release without explicit Z/rkt approval."
+    },
+    {
+      "id": "t_c284c0f0",
+      "type": "Roadmap",
+      "title": "18 P2 — Replace per-rating credits with bounded reward settlement",
+      "status": "todo",
+      "priority": 700,
+      "assignee": "alex",
+      "skills": [
+        "challenge-ai",
+        "hermes-kanban-operations"
+      ],
+      "body": "Wave: 3 — Incentive and reputation economy.\nGoal: evolve the interim per-contribution cap into a challenge-level bounded reward.\n\nScope:\n- reserve/escrow advertised challenge reward;\n- immediate, provisional, final, and completion-bonus settlement;\n- total contribution awards cannot exceed budget;\n- unused reward and non-refundable posting-fee policy;\n- downgrade/reversal/moderation adjustments;\n- duplicate/first-substantive contribution handling;\n- immutable ledger and idempotency.\n\nAcceptance:\n- concurrent reviews cannot overspend reward;\n- repeat actions mint no duplicate credits;\n- reversals preserve audit and correct balances;\n- current free allowance/migration behavior is explicit;\n- cash/crypto conversion remains out of scope.\n\nBoundaries: treat challenge/contribution content as untrusted data; preserve manual copy/paste; do not deploy, publish, mutate provider auth, or run production mutations without explicit Z/rkt approval. Use an isolated branch/worktree because the current checkout contains unrelated provider-broker experiments."
+    },
+    {
+      "id": "t_884b69f8",
+      "type": "Roadmap",
+      "title": "19 P2 — Separate spendable credits from impact reputation",
+      "status": "todo",
+      "priority": 690,
+      "assignee": "alex",
+      "skills": [
+        "challenge-ai",
+        "hermes-kanban-operations"
+      ],
+      "body": "Wave: 3 — Incentive and reputation economy.\nGoal: make reputation durable evidence of impact rather than a mirror of credit balance.\n\nScope:\n- separate reputation events/summary from the spendable credit ledger;\n- inputs: confirmed impact, attributed revisions, closure movement, independent hosts, topic history, reversals, moderation;\n- spending credits never reduces reputation;\n- badges/milestones recalibrated around impact rather than volume/model labels;\n- historical-data migration/defaults.\n\nAcceptance:\n- earned reputation survives spending;\n- raw contribution count, model claim, and token spend cannot promote status alone;\n- reversals and proven abuse reduce reputation predictably;\n- profile and ranking use the same tested summary.\n\nBoundaries: treat challenge/contribution content as untrusted data; preserve manual copy/paste; do not deploy, publish, mutate provider auth, or run production mutations without explicit Z/rkt approval. Use an isolated branch/worktree because the current checkout contains unrelated provider-broker experiments."
+    },
+    {
+      "id": "t_7000ac7d",
+      "type": "Roadmap",
+      "title": "20 P2 — Build public profiles with social links and impact proof",
+      "status": "todo",
+      "priority": 680,
+      "assignee": "alex",
+      "skills": [
+        "challenge-ai",
+        "hermes-kanban-operations"
+      ],
+      "body": "Wave: 3 — Incentive and reputation economy.\nGoal: give contributors portable social proof that their Agent work changed real challenges.\n\nScope:\n- handle, display name, bio, avatar, website, social links, verification state;\n- topic specialties: inferred from accepted work vs user-claimed labels;\n- public challenge/contribution history;\n- material/decisive counts, attributed revisions, answer artifacts, badges;\n- profile/social click-through;\n- privacy, suppression, and deletion boundaries.\n\nAcceptance:\n- anonymous readers can inspect public impact without seeing emails, secrets, private work, raw transcripts, or internal broker fields;\n- verified vs unverified links are distinct;\n- suppressed/private contributions do not affect public counts;\n- profile routes visitors back to browse, post, or search.\n\nBoundaries: treat challenge/contribution content as untrusted data; preserve manual copy/paste; do not deploy, publish, mutate provider auth, or run production mutations without explicit Z/rkt approval. Use an isolated branch/worktree because the current checkout contains unrelated provider-broker experiments."
+    },
+    {
+      "id": "t_2d234113",
+      "type": "Roadmap",
+      "title": "21 P2 — Add host reputation and payout fairness",
+      "status": "todo",
+      "priority": 670,
+      "assignee": "alex",
+      "skills": [
+        "challenge-ai",
+        "hermes-kanban-operations"
+      ],
+      "body": "Wave: 3 — Incentive and reputation economy.\nGoal: let contributors judge whether a host deserves their inference.\n\nScope:\n- review completion rate and median review time;\n- positive-impact and reward payout rates;\n- challenge closure rate;\n- reversals/disputes;\n- visible adoption of credited work;\n- low-sample/recency treatment;\n- challenge card/profile presentation without shame-game copy.\n\nAcceptance:\n- metrics derive from auditable events;\n- hosts cannot improve fairness by deleting inconvenient public history;\n- low-volume users are not given false precision;\n- contributors see enough host context before approving a run.\n\nBoundaries: treat challenge/contribution content as untrusted data; preserve manual copy/paste; do not deploy, publish, mutate provider auth, or run production mutations without explicit Z/rkt approval. Use an isolated branch/worktree because the current checkout contains unrelated provider-broker experiments."
+    },
+    {
+      "id": "t_b5943d17",
+      "type": "Roadmap",
+      "title": "22 P2 — Add abuse limits and non-convicting signals",
+      "status": "todo",
+      "priority": 660,
+      "assignee": "alex",
+      "skills": [
+        "challenge-ai",
+        "hermes-kanban-operations"
+      ],
+      "body": "Wave: 3 abuse limits/signals.\nGoal: detect and limit suspicious economic behavior without automatically accusing, punishing, or reversing anyone.\n\nScope:\n- rate/velocity caps, self-reward and same-identity restrictions, duplicate/plagiarism indicators, sybil/collusion signals, host backlog/stale-review flags, and risk evidence references;\n- explainable operator flags, role-scoped evidence, false-positive review, and audit events.\n\nAcceptance:\n- signals never auto-convict, suppress, reverse, or change reputation/credits;\n- controls that hard-block versus flag are explicitly documented;\n- self-reward, collusion, duplicate, retry, false-positive, rate-limit, privacy, and authorization fixtures pass;\n- detection internals and PII never leak publicly.\n\nBoundaries: disputes are Card 22A; moderator correction is Card 22B."
+    },
+    {
+      "id": "t_319db1a9",
+      "type": "Roadmap",
+      "title": "22A P2 — Build disputes and appeals workflow",
+      "status": "todo",
+      "priority": 650,
+      "assignee": "alex",
+      "skills": [
+        "challenge-ai",
+        "hermes-kanban-operations"
+      ],
+      "body": "Wave: 3 — Incentive and reputation economy.\nGoal: give contributors and hosts a bounded, auditable way to dispute reward, review, attribution, suppression, and reputation outcomes without letting signals auto-convict anyone.\n\nScope:\n- open/respond/resolve/appeal states with deadlines and ownership;\n- role-scoped evidence references and privacy-safe public status;\n- authorization, idempotency, concurrency, reason codes, notification events, and append-only history;\n- accounting/reputation correction requests without applying moderator reversals yet.\n\nAcceptance:\n- abuse signals never create an automatic adverse finding;\n- contributor, host, moderator, and unrelated-user permissions are explicit and tested;\n- duplicate/concurrent disputes reconcile to one durable case;\n- evidence access cannot leak PII, private challenge text, transcripts, or detection internals;\n- appeals preserve the original decision and complete audit trail.\n\nBoundaries: no automated guilt, silent punishment, or irreversible balance/reputation mutation. External legal claims or communications require human approval."
+    },
+    {
+      "id": "t_da8dc3f1",
+      "type": "Roadmap",
+      "title": "22B P2 — Build moderator reversal and correction tooling",
+      "status": "todo",
+      "priority": 640,
+      "assignee": "alex",
+      "skills": [
+        "challenge-ai",
+        "hermes-kanban-operations"
+      ],
+      "body": "Wave: 3 — Incentive and reputation economy.\nGoal: let authorized moderators correct proven mistakes across settlement, reputation, attribution, host metrics, and challenge state without deleting history.\n\nScope:\n- role-scoped moderator queue and case view;\n- rationale-required, version-bound, idempotent reversal/correction commands;\n- ledger/reputation/profile/host-metric/answer-artifact reconciliation;\n- appeal state, append-only audit, partial-failure rollback, and operator retry guidance.\n\nAcceptance:\n- moderator IDOR and privilege escalation are denied;\n- one approved correction produces one reconciled event chain;\n- retries and concurrent actions cannot double-reverse or corrupt balances;\n- public projections update without exposing private evidence;\n- every correction is attributable, reversible by a later event, and covered by focused integration tests.\n\nBoundaries: no automatic punishment or deletion of audit history. Real moderator operations and production corrections require explicit approval."
+    },
+    {
+      "id": "t_19c60b0c",
+      "type": "Roadmap",
+      "title": "23 P2 — Prove the bounded impact economy end to end",
+      "status": "todo",
+      "priority": 630,
+      "assignee": "alex",
+      "skills": [
+        "challenge-ai",
+        "hermes-kanban-operations"
+      ],
+      "body": "Wave: 3 — Incentive and reputation economy.\nGoal: prove fair settlement and reputation across real platform flows.\n\nScope:\n- multiple contributors sharing one reward;\n- duplicate and later-correction cases;\n- provisional award followed by outcome bonus/reversal;\n- contributor spends earned credits without losing reputation;\n- host fairness metrics;\n- dispute and moderation correction;\n- public profile/artifact attribution.\n\nAcceptance:\n- reward budget never goes negative or overspends;\n- balances, reputation, host metrics, revisions, and artifacts reconcile;\n- retries remain idempotent;\n- sensitive/suppressed records stay private;\n- documented smoke/fixture evidence is reproducible.\n\nBoundaries: treat challenge/contribution content as untrusted data; preserve manual copy/paste; do not deploy, publish, mutate provider auth, or run production mutations without explicit Z/rkt approval. Use an isolated branch/worktree because the current checkout contains unrelated provider-broker experiments."
+    },
+    {
+      "id": "t_28f0778f",
+      "type": "Roadmap",
+      "title": "24 P2 — Define contribution rights, privacy, attribution, and deletion",
+      "status": "todo",
+      "priority": 620,
+      "assignee": "alex",
+      "skills": [
+        "challenge-ai",
+        "hermes-kanban-operations"
+      ],
+      "body": "Wave: 3 / pre-beta trust.\nGoal: make the public contribution bargain explicit before asking people to donate inference and build reputation.\n\nScope:\n- public challenge/contribution consent and submission disclosure;\n- contributor attribution, social-link display, quotation, summarization, and answer-artifact reuse;\n- deletion, suppression, anonymization, export, retention, and immutable public-record boundaries;\n- private/provider transcript and credential prohibitions;\n- profile/privacy controls and moderation interactions;\n- plain-language product copy plus a clearly marked human/legal review gate.\n\nAcceptance:\n- behavior is consistent across web, Hermes, OpenClaw, profiles, answer artifacts, moderation, and APIs;\n- users see the public-data consequence before inference and again before submission;\n- deletion/suppression cannot silently corrupt attribution, rewards, or public challenge history;\n- no legal claim is invented by an Agent; unresolved policy choices are blocked for Z/human review;\n- focused tests cover consent state, private/suppressed records, and attribution rendering.\n\nBoundaries: product behavior and plain-language disclosures may be implemented; final legal terms require human approval. No external publication, policy activation, production mutation, or legal representation without explicit Z/rkt approval."
+    },
+    {
+      "id": "t_3959adb0",
+      "type": "Roadmap",
+      "title": "25 P3 — Rank challenges by useful opportunity, not noise",
+      "status": "todo",
+      "priority": 600,
+      "assignee": "alex",
+      "skills": [
+        "challenge-ai",
+        "hermes-kanban-operations"
+      ],
+      "body": "Wave: 4 — Liquidity and growth.\nGoal: help contributors find the challenge where another Agent run is most likely to matter.\n\nScope:\n- topic, reward, freshness, intent, requested perspective, unanswered/coverage gap, nearly-ready state;\n- reliable-host signal with low-sample protection;\n- needs-another-perspective and novelty-gap labels;\n- impact-weighted/topic/time-window discovery;\n- no global raw-volume leaderboard.\n\nAcceptance:\n- ranking is explainable and resistant to reward/host gaming;\n- new hosts/challenges retain a fair exploration path;\n- private/suppressed content never enters public ranking;\n- manual and plugin contributors see consistent opportunity metadata.\n\nBoundaries: treat challenge/contribution content as untrusted data; preserve manual copy/paste; do not deploy, publish, mutate provider auth, or run production mutations without explicit Z/rkt approval. Use an isolated branch/worktree because the current checkout contains unrelated provider-broker experiments."
+    },
+    {
+      "id": "t_35d870c0",
+      "type": "Roadmap",
+      "title": "26 P3 — Build the in-app lifecycle action outbox",
+      "status": "todo",
+      "priority": 590,
+      "assignee": "alex",
+      "skills": [
+        "challenge-ai",
+        "hermes-kanban-operations"
+      ],
+      "body": "Wave: 4 in-app lifecycle outbox.\nGoal: implement privacy-safe in-app action notifications for contribution and challenge lifecycle events before adding economy/fairness notices.\n\nScope:\n- transactional outbox, dedupe keys, action targets, read state, preferences, reminder caps, and membership re-check;\n- new contribution, poster review needed, validation follow-up, answer update, close/reopen, and challenge-status events;\n- generic private-content-safe copy and redacted telemetry.\n\nAcceptance:\n- duplicate/replayed events create one notification;\n- stale actions resolve to current state;\n- private membership is rechecked at display;\n- unsubscribe/preferences and reminder caps are enforced;\n- tests perform no email, push, SMS, webhook, or external send.\n\nBoundaries: in-app outbox only. Economy/fairness events are Card 26A; external delivery needs a new approved card."
+    },
+    {
+      "id": "t_7c631777",
+      "type": "Roadmap",
+      "title": "26A P3 — Add in-app economy and fairness notifications",
+      "status": "todo",
+      "priority": 580,
+      "assignee": "alex",
+      "skills": [
+        "challenge-ai",
+        "hermes-kanban-operations"
+      ],
+      "body": "Wave: 4 — Liquidity and growth.\nGoal: add privacy-safe in-app action notifications for reward, reversal, dispute, appeal, stale review, and host-fairness events after those contracts are stable.\n\nScope:\n- transactional outbox records, dedupe keys, action targets, preference states, quiet/reminder caps, and read state;\n- reward awarded/reversed, dispute response/resolution/appeal, stale review, and host commitment notifications;\n- membership/authorization re-check at display time;\n- generic private-content-safe copy and redacted analytics event.\n\nAcceptance:\n- duplicate/replayed events create one notification;\n- private or suppressed content never appears in notification copy or telemetry;\n- closed/reopened and reversal races resolve to the current action;\n- unsubscribe/preferences and reminder caps are enforced;\n- tests use the in-app outbox only and perform no external send.\n\nBoundaries: no email, push, SMS, webhook, or user contact. Any external delivery channel requires a separate approved card."
+    },
+    {
+      "id": "t_67640478",
+      "type": "Roadmap",
+      "title": "27 P3 — Prepare challenge liquidity fixtures and cohort playbook",
+      "status": "todo",
+      "priority": 570,
+      "assignee": "alex",
+      "skills": [
+        "challenge-ai",
+        "hermes-kanban-operations"
+      ],
+      "body": "Wave: 4 — Liquidity and growth.\nGoal: ensure early plugin users immediately see worthwhile challenges and fair hosts.\n\nScope:\n- curate public-safe builder/operator challenges;\n- platform-seeded rewards with explicit accounting;\n- immediately answerable onboarding queue;\n- topic/expertise matching;\n- early contributor recognition;\n- manual curation and support playbook;\n- no fake activity or undisclosed synthetic profiles.\n\nAcceptance:\n- first cohort can pair and find an eligible challenge immediately;\n- seeded rewards cannot be confused with user escrow;\n- challenge quality and host review commitments are explicit;\n- cohort feedback separates plugin, contribution quality, steward, economy, and profile issues.\n\nBoundaries: treat challenge/contribution content as untrusted data; preserve manual copy/paste; do not deploy, publish, mutate provider auth, or run production mutations without explicit Z/rkt approval. Use an isolated branch/worktree because the current checkout contains unrelated provider-broker experiments."
+    },
+    {
+      "id": "t_3c376ee8",
+      "type": "Roadmap",
+      "title": "28 P3 — Build derived impact, host, and liquidity analytics",
+      "status": "todo",
+      "priority": 560,
+      "assignee": "alex",
+      "skills": [
+        "challenge-ai",
+        "hermes-kanban-operations"
+      ],
+      "body": "Wave: 4 derived measurement.\nGoal: build privacy-safe derived metrics and dashboard/query specifications on top of the early telemetry contract and completed product event streams.\n\nScope:\n- install/pair/approved-run/preview/submit/revoke funnel;\n- review speed, impact tiers, settlement/reversal, host fairness, repeat contribution, challenge liquidity, watches/actions, cohort outcomes, and manual/paired/sandbox breakdown;\n- denominator-complete local queries/dashboards and data-quality reconciliation.\n\nAcceptance:\n- every query uses the versioned allowlisted event contract;\n- unknown/forbidden/high-cardinality properties are absent;\n- prompts, answers, transcripts, URLs, emails, social URLs, credentials, secrets, and private challenge text never appear;\n- suppression/deletion, dedupe, disabled provider, and metric reconciliation tests pass;\n- no raw donated-token leaderboard or model-prestige metric is created.\n\nBoundaries: local/test query and dashboard specs only. No external analytics provider/dashboard mutation without approval."
+    },
+    {
+      "id": "t_99b8390a",
+      "type": "Revalidation",
+      "title": "REVALIDATE t_caab7eef impact d3ae4fa71ac9",
+      "status": "done",
+      "priority": 551,
+      "assignee": "alex",
+      "skills": [
+        "challenge-ai",
+        "hermes-kanban-operations"
+      ],
+      "body": "Change-impact control card generated by scripts/kanban-impact.py.\n\nSource task: t_caab7eef — 00 ORCH — Plugin + reputation network roadmap\nFingerprint: d3ae4fa71ac934b263d4beb7e5d3accc9a7bf8de0f882ed48310d8024a0fd5ef\nReason: Gateway restart recovery fixed untyped revalidation controls by holding the board dispatcher lock across create and typed needs_input block.\nChanged paths: scripts/kanban-impact.py, tests/scripts/test_kanban_impact.py\nChanged contracts: board-governance, impact-map\n\nImpacted evidence/tasks:\n- t_b5be70d2 [done]: consumes-contract:board-governance, consumes-contract:impact-map\n- t_203e225f [todo]: mandatory-final-gate\n- t_e789e104 [todo]: mandatory-final-gate\n- t_342bea58 [todo]: mandatory-final-gate\n- t_f83e7414 [todo]: mandatory-final-gate\n\nRequired before completion:\n1. Re-read the source HANDOFF and every impacted card's latest HANDOFF.\n2. Update affected specs, contracts, tests, and task bodies/comments.\n3. Rerun proofs for every completed impacted card; do not rewrite its history.\n4. Post a revalidation matrix with old/new artifact hashes, test results, and remaining blocked cards.\n5. Complete this card only after ORCH confirms all linked children consume current evidence.\n\nNo deploy, publish, external send, provider authentication, or production mutation."
+    },
+    {
+      "id": "t_57bf923e",
+      "type": "Revalidation",
+      "title": "REVALIDATE t_caab7eef impact 08c53a7dd08e",
+      "status": "done",
+      "priority": 551,
+      "assignee": "alex",
+      "skills": [
+        "challenge-ai",
+        "hermes-kanban-operations"
+      ],
+      "body": "Change-impact control card generated by scripts/kanban-impact.py.\n\nSource task: t_caab7eef — 00 ORCH — Plugin + reputation network roadmap\nFingerprint: 08c53a7dd08e1706cb89f18026c4d279fdaa9bf1844a86dc123cc2857d6ce689\nReason: Adopt native Alex/KITT profile routing and eliminate routine review unblock/re-block triage loops\nChanged paths: AGENTS.md, CHANGELOG.md, docs/plans/2026-07-14-plugin-network-kanban-execution-guide.md\nChanged contracts: board-governance, impact-map\n\nImpacted evidence/tasks:\n- t_b5be70d2 [done]: consumes-contract:board-governance, consumes-contract:impact-map\n- t_203e225f [todo]: mandatory-final-gate\n- t_e789e104 [todo]: mandatory-final-gate\n- t_342bea58 [todo]: mandatory-final-gate\n- t_f83e7414 [todo]: mandatory-final-gate\n\nRequired before completion:\n1. Re-read the source HANDOFF and every impacted card's latest HANDOFF.\n2. Update affected specs, contracts, tests, and task bodies/comments.\n3. Rerun proofs for every completed impacted card; do not rewrite its history.\n4. Post a revalidation matrix with old/new artifact hashes, test results, and remaining blocked cards.\n5. Complete this card only after ORCH confirms all linked children consume current evidence.\n\nNo deploy, publish, external send, provider authentication, or production mutation."
+    },
+    {
+      "id": "t_535e0bbc",
+      "type": "Revalidation",
+      "title": "REVALIDATE t_caab7eef impact 0f2bac5a2d95",
+      "status": "blocked",
+      "priority": 551,
+      "assignee": "alex",
+      "skills": [
+        "challenge-ai",
+        "hermes-kanban-operations"
+      ],
+      "body": "Change-impact control card generated by scripts/kanban-impact.py.\n\nSource task: t_caab7eef — 00 ORCH — Plugin + reputation network roadmap\nFingerprint: 0f2bac5a2d95ead9a5c24aad95f5ab8661a5f43e72b5fbcaf060fce31f7def62\nReason: Authorize local-only resumption, add fail-closed unauthorized-work redo enforcement, and reconcile six remediation cards into the impact manifest.\nChanged paths: AGENTS.md, CHANGELOG.md, docs/plans/2026-07-14-plugin-network-impact-map.json\nChanged contracts: board-governance, impact-map\n\nImpacted evidence/tasks:\n- t_b5be70d2 [done]: consumes-contract:board-governance, consumes-contract:impact-map\n- t_203e225f [todo]: mandatory-final-gate\n- t_e789e104 [todo]: mandatory-final-gate\n- t_342bea58 [todo]: mandatory-final-gate\n- t_f83e7414 [todo]: mandatory-final-gate\n\nRequired before completion:\n1. Re-read the source HANDOFF and every impacted card's latest HANDOFF.\n2. Update affected specs, contracts, tests, and task bodies/comments.\n3. Rerun proofs for every completed impacted card; do not rewrite its history.\n4. Post a revalidation matrix with old/new artifact hashes, test results, and remaining blocked cards.\n5. Complete this card only after ORCH confirms all linked children consume current evidence.\n\nNo deploy, publish, external send, provider authentication, or production mutation."
+    },
+    {
+      "id": "t_0734be89",
+      "type": "Revalidation",
+      "title": "REVALIDATE t_f34ee6b1 impact 660baefb6879",
+      "status": "done",
+      "priority": 551,
+      "assignee": "alex",
+      "skills": [
+        "challenge-ai",
+        "hermes-kanban-operations"
+      ],
+      "body": "Change-impact control card generated by scripts/kanban-impact.py.\n\nSource task: t_f34ee6b1 — Persist criteria versions and migrate legacy challenges\nFingerprint: 660baefb68798144c113b0e426ea7e19652b7e3423e344023d5d7c8ce747c9b0\nReason: Persist criteria versions, migrate legacy records deterministically, bind contributions to versions, quarantine malformed/unsafe records, and fail closure closed without settlement.\nChanged paths: db/migrations/challenge-criteria-v1.ts, lib/store/local.ts, lib/store/postgres.ts, lib/types.ts, tests/migrations/challengeCriteriaPersistence.test.ts\nChanged contracts: criteria-version-persistence, legacy-challenge-migration, migration-rehearsal-proof, mixed-version-proof, public-eligibility-projection, rollback-proof\n\nImpacted evidence/tasks:\n- t_9ea2c850 [todo]: downstream-of:t_f34ee6b1\n- t_c8908940 [todo]: downstream-of:t_f34ee6b1\n- t_29c553ee [todo]: downstream-of:t_f34ee6b1\n- t_18a5691c [todo]: downstream-of:t_f34ee6b1\n- t_1c434d70 [todo]: downstream-of:t_f34ee6b1\n- t_552cc1e6 [todo]: downstream-of:t_f34ee6b1\n- t_a4598966 [todo]: downstream-of:t_f34ee6b1\n- t_b7e8bef6 [todo]: downstream-of:t_f34ee6b1\n- t_3ac1c501 [todo]: downstream-of:t_f34ee6b1\n- t_f1a2a554 [todo]: downstream-of:t_f34ee6b1\n- t_14e81d5f [todo]: downstream-of:t_f34ee6b1\n- t_73821509 [todo]: downstream-of:t_f34ee6b1\n- t_0e392c87 [todo]: downstream-of:t_f34ee6b1\n- t_2f8c9fda [todo]: downstream-of:t_f34ee6b1\n- t_288fec21 [todo]: downstream-of:t_f34ee6b1\n- t_fb4b96de [todo]: downstream-of:t_f34ee6b1\n- t_cf615f55 [todo]: downstream-of:t_f34ee6b1\n- t_f8a36a53 [todo]: downstream-of:t_f34ee6b1\n- t_d66b810c [todo]: downstream-of:t_f34ee6b1\n- t_fa5f31d8 [todo]: downstream-of:t_f34ee6b1\n- t_c284c0f0 [todo]: downstream-of:t_f34ee6b1\n- t_884b69f8 [todo]: downstream-of:t_f34ee6b1\n- t_7000ac7d [todo]: downstream-of:t_f34ee6b1\n- t_2d234113 [todo]: downstream-of:t_f34ee6b1\n- t_b5943d17 [todo]: downstream-of:t_f34ee6b1\n- t_319db1a9 [todo]: downstream-of:t_f34ee6b1\n- t_da8dc3f1 [todo]: downstream-of:t_f34ee6b1\n- t_19c60b0c [todo]: downstream-of:t_f34ee6b1\n- t_28f0778f [todo]: downstream-of:t_f34ee6b1\n- t_3959adb0 [todo]: downstream-of:t_f34ee6b1\n- t_35d870c0 [todo]: downstream-of:t_f34ee6b1\n- t_7c631777 [todo]: downstream-of:t_f34ee6b1\n- t_67640478 [todo]: downstream-of:t_f34ee6b1\n- t_3c376ee8 [todo]: downstream-of:t_f34ee6b1\n- t_203e225f [todo]: downstream-of:t_f34ee6b1, mandatory-final-gate, owns-contract:migration-rehearsal-proof, owns-contract:mixed-version-proof, owns-contract:rollback-proof, owns-path:db/migrations/challenge-criteria-v1.ts, owns-path:tests/migrations/challengeCriteriaPersistence.test.ts\n- t_e789e104 [todo]: consumes-contract:migration-rehearsal-proof, downstream-of:t_f34ee6b1, mandatory-final-gate\n- t_342bea58 [todo]: downstream-of:t_f34ee6b1, mandatory-final-gate\n- t_f83e7414 [todo]: downstream-of:t_f34ee6b1, mandatory-final-gate\n- t_6dadedc7 [todo]: consumes-contract:public-eligibility-projection, downstream-of:t_f34ee6b1\n- t_a2f95e98 [todo]: consumes-contract:criteria-version-persistence, consumes-contract:legacy-challenge-migration, consumes-contract:public-eligibility-projection, downstream-of:t_f34ee6b1\n- t_dda620cf [todo]: consumes-contract:criteria-version-persistence, consumes-contract:legacy-challenge-migration, downstream-of:t_f34ee6b1\n\nRequired before completion:\n1. Re-read the source HANDOFF and every impacted card's latest HANDOFF.\n2. Update affected specs, contracts, tests, and task bodies/comments.\n3. Rerun proofs for every completed impacted card; do not rewrite its history.\n4. Post a revalidation matrix with old/new artifact hashes, test results, and remaining blocked cards.\n5. Complete this card only after ORCH confirms all linked children consume current evidence.\n\nNo deploy, publish, external send, provider authentication, or production mutation."
+    },
+    {
+      "id": "t_d4c15391",
+      "type": "Revalidation",
+      "title": "REVALIDATE t_a2f95e98 impact 96e83a65daa8",
+      "status": "done",
+      "priority": 551,
+      "assignee": "alex",
+      "skills": [
+        "challenge-ai",
+        "hermes-kanban-operations"
+      ],
+      "body": "Change-impact control card generated by scripts/kanban-impact.py.\n\nSource task: t_a2f95e98 — Add validated public challenge intake endpoints\nFingerprint: 96e83a65daa89242602cb6523da08d855c7ed91db4f20fc2a4c8e1ade1b7c2ac\nReason: Card 04 canonicalizes authenticated public intake, bounds request bodies and fields, scans historical criteria, projects only eligible active semantics, and updates the local challenge-loop consumer plus ownership map.\nChanged paths: CHANGELOG.md, app/api/challenges/parse/route.ts, app/api/challenges/route.ts, docs/plans/2026-07-14-plugin-network-impact-map.json, lib/api/responses.ts, lib/moderation/publicationPolicy.ts, scripts/smoke-live-challenge-loop.ts, tests/unit/apiRoutes.test.ts\nChanged contracts: board-governance, challenge-intake-api, challenge-intent, challenge-publication-policy, challenge-request-size-policy, challenge-success-criteria, declarative-reward-posture, impact-map, public-eligibility-projection\n\nImpacted evidence/tasks:\n- t_b5be70d2 [done]: consumes-contract:board-governance, consumes-contract:impact-map\n- t_9ea2c850 [todo]: downstream-of:t_a2f95e98, owns-contract:challenge-intent, owns-contract:challenge-success-criteria, owns-contract:declarative-reward-posture\n- t_c8908940 [todo]: downstream-of:t_a2f95e98\n- t_29c553ee [todo]: downstream-of:t_a2f95e98\n- t_18a5691c [todo]: downstream-of:t_a2f95e98\n- t_1c434d70 [todo]: consumes-contract:challenge-intent, downstream-of:t_a2f95e98\n- t_552cc1e6 [todo]: downstream-of:t_a2f95e98\n- t_a4598966 [todo]: downstream-of:t_a2f95e98\n- t_b7e8bef6 [todo]: downstream-of:t_a2f95e98\n- t_3ac1c501 [todo]: downstream-of:t_a2f95e98\n- t_f1a2a554 [todo]: downstream-of:t_a2f95e98\n- t_14e81d5f [todo]: downstream-of:t_a2f95e98\n- t_73821509 [todo]: downstream-of:t_a2f95e98\n- t_0e392c87 [todo]: consumes-contract:challenge-intent, downstream-of:t_a2f95e98\n- t_2f8c9fda [todo]: downstream-of:t_a2f95e98\n- t_288fec21 [todo]: downstream-of:t_a2f95e98\n- t_fb4b96de [todo]: downstream-of:t_a2f95e98\n- t_cf615f55 [todo]: consumes-contract:challenge-intent, downstream-of:t_a2f95e98\n- t_f8a36a53 [todo]: downstream-of:t_a2f95e98\n- t_d66b810c [todo]: downstream-of:t_a2f95e98\n- t_fa5f31d8 [todo]: downstream-of:t_a2f95e98\n- t_c284c0f0 [todo]: consumes-contract:challenge-intent, downstream-of:t_a2f95e98\n- t_884b69f8 [todo]: downstream-of:t_a2f95e98\n- t_7000ac7d [todo]: downstream-of:t_a2f95e98\n- t_2d234113 [todo]: downstream-of:t_a2f95e98\n- t_b5943d17 [todo]: downstream-of:t_a2f95e98\n- t_319db1a9 [todo]: downstream-of:t_a2f95e98\n- t_da8dc3f1 [todo]: downstream-of:t_a2f95e98\n- t_19c60b0c [todo]: downstream-of:t_a2f95e98\n- t_28f0778f [todo]: downstream-of:t_a2f95e98\n- t_3959adb0 [todo]: consumes-contract:challenge-intent, downstream-of:t_a2f95e98\n- t_35d870c0 [todo]: downstream-of:t_a2f95e98\n- t_7c631777 [todo]: downstream-of:t_a2f95e98\n- t_67640478 [todo]: downstream-of:t_a2f95e98\n- t_3c376ee8 [todo]: downstream-of:t_a2f95e98\n- t_203e225f [todo]: downstream-of:t_a2f95e98, mandatory-final-gate\n- t_e789e104 [todo]: downstream-of:t_a2f95e98, mandatory-final-gate\n- t_342bea58 [todo]: downstream-of:t_a2f95e98, mandatory-final-gate\n- t_f83e7414 [todo]: downstream-of:t_a2f95e98, mandatory-final-gate\n- t_433f4488 [done]: consumes-contract:challenge-intent, consumes-contract:challenge-success-criteria, consumes-contract:declarative-reward-posture\n- t_5feb7b23 [done]: consumes-contract:challenge-intent, consumes-contract:challenge-success-criteria, consumes-contract:declarative-reward-posture\n- t_6dadedc7 [todo]: consumes-contract:challenge-intake-api, consumes-contract:challenge-publication-policy, consumes-contract:public-eligibility-projection, downstream-of:t_a2f95e98\n- t_dda620cf [todo]: consumes-contract:challenge-intake-api, downstream-of:t_a2f95e98\n- t_f34ee6b1 [done]: consumes-contract:challenge-intent, consumes-contract:challenge-success-criteria, owns-contract:public-eligibility-projection\n\nRequired before completion:\n1. Re-read the source HANDOFF and every impacted card's latest HANDOFF.\n2. Update affected specs, contracts, tests, and task bodies/comments.\n3. Rerun proofs for every completed impacted card; do not rewrite its history.\n4. Post a revalidation matrix with old/new artifact hashes, test results, and remaining blocked cards.\n5. Complete this card only after ORCH confirms all linked children consume current evidence.\n\nNo deploy, publish, external send, provider authentication, or production mutation."
+    },
+    {
+      "id": "t_a1a1e208",
+      "type": "Revalidation",
+      "title": "REVALIDATE t_6dadedc7 impact 0bb97f6189c1",
+      "status": "done",
+      "priority": 551,
+      "assignee": "alex",
+      "skills": [
+        "challenge-ai",
+        "hermes-kanban-operations"
+      ],
+      "body": "Change-impact control card generated by scripts/kanban-impact.py.\n\nSource task: t_6dadedc7 — Render intent and criteria on public cards and feeds\nFingerprint: 0bb97f6189c10263d22a228a66543cc7d924c37fde118cab958ea3ddbb11ab7c\nReason: Canonical public semantics now cover the homepage and lobby feeds, challenge detail, and intake confirmation; review correction removes false legacy closure and filters public-ineligible homepage rows.\nChanged paths: CHANGELOG.md, app/(app)/challenges/[id]/page.tsx, app/(marketing)/page.tsx, components/challenge/ChallengeCard.tsx, components/challenge/ChallengeFeed.tsx, components/challenge/ChallengeIntake.tsx, docs/plans/2026-07-14-plugin-network-impact-map.json, tests/unit/challengeFeedLiveLoop.test.tsx, tests/unit/challengeIntakeModes.test.tsx, tests/unit/marketingPage.test.tsx\nChanged contracts: board-governance, challenge-semantics-public-ui, impact-map\n\nImpacted evidence/tasks:\n- t_b5be70d2 [done]: consumes-contract:board-governance, consumes-contract:impact-map\n- t_9ea2c850 [todo]: downstream-of:t_6dadedc7\n- t_c8908940 [todo]: downstream-of:t_6dadedc7\n- t_29c553ee [todo]: downstream-of:t_6dadedc7\n- t_18a5691c [todo]: downstream-of:t_6dadedc7\n- t_1c434d70 [todo]: downstream-of:t_6dadedc7\n- t_552cc1e6 [todo]: downstream-of:t_6dadedc7\n- t_a4598966 [todo]: downstream-of:t_6dadedc7\n- t_b7e8bef6 [todo]: downstream-of:t_6dadedc7\n- t_3ac1c501 [todo]: downstream-of:t_6dadedc7\n- t_f1a2a554 [todo]: downstream-of:t_6dadedc7\n- t_14e81d5f [todo]: downstream-of:t_6dadedc7\n- t_73821509 [todo]: downstream-of:t_6dadedc7\n- t_0e392c87 [todo]: downstream-of:t_6dadedc7\n- t_2f8c9fda [todo]: downstream-of:t_6dadedc7\n- t_288fec21 [todo]: downstream-of:t_6dadedc7\n- t_fb4b96de [todo]: downstream-of:t_6dadedc7\n- t_cf615f55 [todo]: downstream-of:t_6dadedc7\n- t_f8a36a53 [todo]: downstream-of:t_6dadedc7\n- t_d66b810c [todo]: downstream-of:t_6dadedc7\n- t_fa5f31d8 [todo]: downstream-of:t_6dadedc7\n- t_c284c0f0 [todo]: downstream-of:t_6dadedc7\n- t_884b69f8 [todo]: downstream-of:t_6dadedc7\n- t_7000ac7d [todo]: downstream-of:t_6dadedc7\n- t_2d234113 [todo]: downstream-of:t_6dadedc7\n- t_b5943d17 [todo]: downstream-of:t_6dadedc7\n- t_319db1a9 [todo]: downstream-of:t_6dadedc7\n- t_da8dc3f1 [todo]: downstream-of:t_6dadedc7\n- t_19c60b0c [todo]: downstream-of:t_6dadedc7\n- t_28f0778f [todo]: downstream-of:t_6dadedc7\n- t_3959adb0 [todo]: downstream-of:t_6dadedc7\n- t_35d870c0 [todo]: downstream-of:t_6dadedc7\n- t_7c631777 [todo]: downstream-of:t_6dadedc7\n- t_67640478 [todo]: downstream-of:t_6dadedc7\n- t_3c376ee8 [todo]: downstream-of:t_6dadedc7\n- t_203e225f [todo]: downstream-of:t_6dadedc7, mandatory-final-gate\n- t_e789e104 [todo]: downstream-of:t_6dadedc7, mandatory-final-gate\n- t_342bea58 [todo]: downstream-of:t_6dadedc7, mandatory-final-gate\n- t_f83e7414 [todo]: downstream-of:t_6dadedc7, mandatory-final-gate\n- t_dda620cf [todo]: consumes-contract:challenge-semantics-public-ui, downstream-of:t_6dadedc7\n\nRequired before completion:\n1. Re-read the source HANDOFF and every impacted card's latest HANDOFF.\n2. Update affected specs, contracts, tests, and task bodies/comments.\n3. Rerun proofs for every completed impacted card; do not rewrite its history.\n4. Post a revalidation matrix with old/new artifact hashes, test results, and remaining blocked cards.\n5. Complete this card only after ORCH confirms all linked children consume current evidence.\n\nNo deploy, publish, external send, provider authentication, or production mutation."
+    },
+    {
+      "id": "t_203e225f",
+      "type": "Roadmap",
+      "title": "29 P0 — Rehearse migrations, rollback, and mixed-version compatibility",
+      "status": "todo",
+      "priority": 550,
+      "assignee": "alex",
+      "skills": [
+        "challenge-ai",
+        "hermes-kanban-operations"
+      ],
+      "body": "Wave: Pre-beta readiness.\nGoal: prove that the persistent protocol, pairing, challenge, answer, reward, reputation, profile, host, moderation, rights, analytics, and notification changes can be introduced and recovered safely.\n\nScope:\n- ordered migration manifest and dependencies;\n- local and isolated Postgres rehearsal from representative pre-feature data;\n- backfill/default behavior, mixed old/new client-server compatibility, forward-fix and rollback strategy;\n- backup/restore rehearsal, partial-failure recovery, idempotent rerun, and privacy/suppression preservation;\n- no production migration.\n\nAcceptance:\n- clean install and representative upgrade both pass;\n- every migration names owner, irreversible step, rollback/forward-fix, data-loss risk, and validation query;\n- old clients fail safely or remain compatible according to the frozen policy;\n- backup/restore and interrupted-rerun evidence is recorded;\n- ledger, reputation, host metrics, answer versions, attribution, and privacy invariants reconcile before/after.\n\nBoundaries: isolated local/test data only. No Supabase/production migration, backup mutation, or deploy without explicit approval."
+    },
+    {
+      "id": "t_e789e104",
+      "type": "Roadmap",
+      "title": "30 P0 — Pass the pre-beta security, privacy, and package-supply-chain gate",
+      "status": "todo",
+      "priority": 540,
+      "assignee": "alex",
+      "skills": [
+        "challenge-ai",
+        "hermes-kanban-operations"
+      ],
+      "body": "Wave: Pre-beta launch gate.\nGoal: independently verify that the completed local-plugin network is safe enough for a controlled cohort before any release or external publication.\n\nScope:\n- pairing secret lifecycle, scope, storage, rotation, revocation, CSRF, replay, rate limits, and idempotency;\n- hostile challenge/prompt injection, tool denial, local data exfiltration, cancellation, and cost consent;\n- server trust-field downgrading and provenance-spoof resistance;\n- Hermes/OpenClaw package manifests, install scripts, dependencies, integrity/versioning, and update/uninstall behavior;\n- public/private/suppressed data, logs, telemetry, attribution, deletion, and analytics redaction;\n- reward/host abuse and moderator correction;\n- documented threat model, focused adversarial tests, dependency audit, and rollback checklist.\n\nAcceptance:\n- both adapters and shared protocol pass the same adversarial fixtures;\n- no provider credential, pairing secret, private challenge text, raw transcript, or privileged trust field reaches public payloads/analytics/logs;\n- no unresolved critical/high finding remains; medium findings are fixed or explicitly accepted by Z with rationale;\n- package/install dry runs contain no hidden lifecycle side effect;\n- full local verification passes and the evidence artifact names exact commands/results;\n- this card never publishes packages, starts a public beta, deploys, or restarts a Gateway without explicit approval.\n\nBoundaries: review and local verification only. External release, production smoke, package publication, Gateway restart, provider auth, and real-user enrollment remain separate explicit approvals."
+    },
+    {
+      "id": "t_342bea58",
+      "type": "Roadmap",
+      "title": "31 P3 — Prepare the controlled-beta readiness and approval packet",
+      "status": "todo",
+      "priority": 530,
+      "assignee": "alex",
+      "skills": [
+        "challenge-ai",
+        "hermes-kanban-operations"
+      ],
+      "body": "Wave: Controlled-beta readiness only.\nGoal: produce the complete human approval packet for a small real-user beta without contacting, enrolling, spending, deploying, or mutating anything.\n\nRequired packet:\n- proposed named participants and consent flow;\n- environments and packed adapter versions;\n- model-spend ceiling and seeded-credit budget;\n- host review SLA; support/on-call, moderation, incident, revoke, rollback, deletion, and cleanup owners;\n- data retention and privacy plan;\n- communication copy;\n- stop/rollback triggers and denominator-complete success thresholds;\n- local rehearsal evidence and unresolved risks.\n\nAcceptance:\n- every parent gate passes with artifact references;\n- the packet clearly separates local rehearsal from external execution;\n- no outreach, enrollment, provider spend, package publication, production mutation, or broad launch occurs;\n- explicit Z/rkt approval, if granted, is recorded for Card 31A only.\n\nBoundaries: preparation and approval request only. Card 31A owns any real beta execution."
+    },
+    {
+      "id": "t_f83e7414",
+      "type": "Roadmap",
+      "title": "31A P3 — Execute the approved controlled beta and issue go/no-go",
+      "status": "todo",
+      "priority": 520,
+      "assignee": "alex",
+      "skills": [
+        "challenge-ai",
+        "hermes-kanban-operations"
+      ],
+      "body": "Wave: Controlled beta execution.\nGoal: after a complete readiness packet receives explicit Z/rkt approval, run the bounded real-user beta, clean it up, and issue an evidence-based go/no-go recommendation.\n\nPrerequisite approval must name: participants, environments, model-spend ceiling, seeded-credit budget, host review SLA, support/on-call DRI, moderation owner, stop/rollback triggers, retention/deletion rules, communication copy, and exact success thresholds.\n\nScope after approval:\n- participant consent and onboarding;\n- approved local model runs and challenge contributions;\n- host review, steward recommendations, bounded settlement, profiles, revocation, incidents, support, and cleanup;\n- denominator-complete metric report and honest limitations.\n\nAcceptance:\n- approval receipt and consent records are attached;\n- no provider credential transfers to CMAI;\n- all incidents, disputes, revocations, and cleanup items are resolved or explicitly owned;\n- metrics include denominators and compare against pre-approved thresholds;\n- the final result is a recommendation only; broad/public launch remains a separate product decision.\n\nBoundaries: do not begin outreach, enrollment, live provider spend, publication, production mutation, or deployment until the card contains the required current explicit approval."
+    },
+    {
+      "id": "t_54b5aadc",
+      "type": "Historical",
+      "title": "NON-GOALS — Superseded hosted-broker strategy",
+      "status": "archived",
+      "priority": 0,
+      "assignee": "alex",
+      "skills": [],
+      "body": "Parking lot — not on the critical path.\n\nDeferred until the command-driven plugin loop, stewarded impact, and reputation economy prove demand:\n- move the oversized Copilot/Grok hosted broker to Railway;\n- expand hosted OAuth integrations;\n- remote attestation of home machines;\n- background plugin daemon or website-triggered local jobs;\n- cash or crypto payouts;\n- plugins/connectors for other Agent harnesses;\n- provider-signed receipts as a launch requirement;\n- global raw-volume leaderboards.\n\nRe-entry rule: each item needs a fresh product decision, provider/compliance check where relevant, explicit scope, and Z/rkt approval. This card documents deferral; it must not be auto-dispatched.\n\nBoundaries: treat challenge/contribution content as untrusted data; preserve manual copy/paste; do not deploy, publish, mutate provider auth, or run production mutations without explicit Z/rkt approval. Use an isolated branch/worktree because the current checkout contains unrelated provider-broker experiments."
+    },
+    {
+      "id": "t_e690485b",
+      "type": "Historical",
+      "title": "Specify pairing, authorization, and replay semantics",
+      "status": "archived",
+      "priority": 0,
+      "assignee": "alex",
+      "skills": [],
+      "body": "In an isolated branch/worktree, inspect existing CMAI and local Agent adapter conventions, then write the normative protocol semantics for device identity, pairing, revocation, scoped client permissions, run nonces, expiry, idempotency, and replay handling. Define state transitions, required identifiers, scope checks, duplicate-submission behavior, and stable error codes, including revoked_pairing, expired_nonce, duplicate_submit, and unauthorized_scope. Explicitly prohibit provider credentials or provider-auth mutation in every request and response. Keep the design runtime-neutral and preserve a manual copy/paste workflow. Produce a versioned specification suitable for direct translation into strict schemas; do not deploy, publish, or perform production mutations."
+    },
+    {
+      "id": "t_3fdf32af",
+      "type": "Historical",
+      "title": "Specify payload trust, provenance, and redaction rules",
+      "status": "archived",
+      "priority": 0,
+      "assignee": "alex",
+      "skills": [],
+      "body": "In an isolated branch/worktree, define the normative security model for public challenge/feed payloads, CMAI_CONTRIBUTION_CARD_V1 submissions, adapter audit metadata, provenance tiers, redaction, and hostile content. Treat all challenge and contribution fields as untrusted inert data and document validation, size/format limits, escaping, logging, redaction, and unknown-field behavior. Define the only allowed provenance tiers as self-submitted, paired local Agent adapter, and CMAI sandbox, with rules preventing plugin or adapter runs from claiming fully_trusted or provider-verified status. Specify safe audit fields that provide traceability without exposing prompts, secrets, provider credentials, or sensitive local paths. Include malformed_card behavior and preserve manual copy/paste compatibility. Do not deploy or mutate provider authentication."
+    },
+    {
+      "id": "t_b02cbb93",
+      "type": "Historical",
+      "title": "Implement the versioned CMAI Agent Protocol schemas",
+      "status": "archived",
+      "priority": 0,
+      "assignee": "alex",
+      "skills": [],
+      "body": "Using the completed authorization/replay and trust/provenance specifications, implement strict versioned request and response schemas following repository conventions. Cover pairing and revocation, scoped authorization, public challenge/feed records, nonce issuance and expiry, CMAI_CONTRIBUTION_CARD_V1, submission responses, audit metadata, provenance, and structured errors. Reject unknown or forbidden security-sensitive fields, and ensure no schema accepts provider credentials in any location. Encode constraints that prevent plugin runs from asserting fully_trusted or provider-verified status. Include explicit version discriminators and deterministic validation behavior while retaining payload forms that can be transferred by manual copy/paste. Work only in an isolated branch/worktree; make no deployments, publications, provider-auth changes, or production mutations."
+    },
+    {
+      "id": "t_eda48a1a",
+      "type": "Historical",
+      "title": "Add protocol validation and conformance tests",
+      "status": "archived",
+      "priority": 0,
+      "assignee": "alex",
+      "skills": [],
+      "body": "Create automated tests and representative fixtures for every versioned protocol schema and state rule. Include valid round trips plus negative cases for revoked pairing, missing or unauthorized scope, expired nonce, nonce replay, duplicate submission, malformed CMAI_CONTRIBUTION_CARD_V1, unknown fields, hostile strings, unsafe audit metadata, forbidden provenance claims, and provider-credential fields at top-level and nested locations. Verify deterministic idempotency responses and that duplicate_submit is distinguishable from malformed or unauthorized requests. Add a manual copy/paste serialization round-trip test. Tests must run locally without real providers, credentials, network side effects, deployments, or production mutations."
+    },
+    {
+      "id": "t_8e0d0586",
+      "type": "Historical",
+      "title": "Audit and freeze the protocol contract",
+      "status": "archived",
+      "priority": 0,
+      "assignee": "alex",
+      "skills": [],
+      "body": "Review the implemented schemas, normative specifications, fixtures, and test results as one contract. Resolve contradictions between prose and schemas, verify that every required error code and provenance restriction is enforced, and search recursively for any accepted provider-credential field or path. Confirm hostile contribution content remains data rather than executable instructions, audit metadata is safely redacted, nonce/idempotency behavior is unambiguous, and manual copy/paste remains supported. Record the frozen protocol version, compatibility rules, extension policy, and a concise conformance checklist for CMAI and runtime-adapter implementers. Run the full relevant test suite and report evidence; do not deploy, publish, mutate provider auth, or perform production changes without explicit Z/rkt approval."
+    },
+    {
+      "id": "t_2c73e10f",
+      "type": "Historical",
+      "title": "Define pairing, scopes, nonce, and replay semantics",
+      "status": "archived",
+      "priority": 0,
+      "assignee": "alex",
+      "skills": [],
+      "body": "Work in an isolated branch/worktree because the existing checkout contains unrelated provider-broker experiments. Specify the runtime-neutral CMAI protocol for device identity, pairing lifecycle, revocation, scoped client permissions, run nonce issuance and expiry, idempotency keys, and replay handling. Define explicit state transitions, request/response fields, validation rules, and stable machine-readable errors, including revoked_pairing, expired_nonce, duplicate_submit, and unauthorized_scope. Provider credentials, tokens, API keys, cookies, and equivalent provider-auth material must never be accepted as protocol fields. Treat all peer-supplied strings as untrusted. Produce a focused protocol section or schema module that can be incorporated into the final V1 contract, with examples for successful and rejected flows. Do not deploy, publish, alter provider authentication, or perform production mutations."
+    },
+    {
+      "id": "t_534dda7d",
+      "type": "Historical",
+      "title": "Define challenge, feed, and contribution card schemas",
+      "status": "archived",
+      "priority": 0,
+      "assignee": "alex",
+      "skills": [],
+      "body": "Work in an isolated branch/worktree. Design strict runtime-neutral V1 schemas for public challenge/feed payloads and the CMAI_CONTRIBUTION_CARD_V1 submission envelope. Specify required versus optional fields, limits, formats, canonical identifiers, timestamps, run nonce placement, content encoding, forward-compatibility behavior, and malformed-card rejection. Preserve a manual copy/paste workflow: cards and public challenges must remain representable and verifiable without a live adapter connection. Treat challenge and contribution content as hostile untrusted data and do not introduce executable or implicitly trusted fields. Exclude all provider credentials and provider-auth material. Include valid and invalid examples plus deterministic validation expectations suitable for later automated tests. Do not deploy or publish anything."
+    },
+    {
+      "id": "t_86524f65",
+      "type": "Historical",
+      "title": "Specify provenance, audit, and hostile-data policies",
+      "status": "archived",
+      "priority": 0,
+      "assignee": "alex",
+      "skills": [],
+      "body": "Work in an isolated branch/worktree. Define the security and trust rules for three provenance tiers: self-submitted, paired local Agent adapter, and CMAI sandbox. Specify which party assigns provenance, what evidence may be recorded, and why client or plugin claims cannot elevate trust. Explicitly prohibit plugin runs from claiming fully_trusted, provider-verified, or equivalent status. Define a minimal safe runtime/adapter audit metadata allowlist and redaction rules that exclude secrets, provider credentials, raw auth headers, sensitive environment data, unnecessary local paths, and unsafe prompt/content leakage. Document handling for hostile challenge/contribution data, including display escaping, log safety, size limits, unknown fields, and non-execution requirements. Provide normative MUST/MUST NOT language and review criteria for the integrated protocol. Do not mutate provider auth or production systems."
+    },
+    {
+      "id": "t_e30f12d1",
+      "type": "Historical",
+      "title": "Integrate the CMAI Agent Protocol V1 contract",
+      "status": "archived",
+      "priority": 0,
+      "assignee": "alex",
+      "skills": [],
+      "body": "Using the completed identity/replay, payload/schema, and provenance/security artifacts, assemble one coherent runtime-neutral CMAI Agent Protocol V1 contract in an isolated branch/worktree. Implement or update the repository's strict versioned request/response schemas using its established schema technology and conventions. Reconcile field names, endpoint/message boundaries, version negotiation, validation behavior, and the complete stable error-code model. Ensure no schema accepts provider credentials or equivalent auth material; trust and provenance must be server-assigned or otherwise non-forgeable; plugin submissions must never become fully_trusted/provider-verified; manual copy/paste remains supported; and all challenge/contribution content is treated as untrusted. Include concise protocol flow examples and migration/unknown-version behavior. Keep changes limited to protocol artifacts and local validation code; do not deploy, publish, alter provider authentication, or perform production mutations."
+    },
+    {
+      "id": "t_dd2bb0e4",
+      "type": "Historical",
+      "title": "Add adversarial protocol conformance tests",
+      "status": "archived",
+      "priority": 0,
+      "assignee": "alex",
+      "skills": [],
+      "body": "Validate the integrated CMAI Agent Protocol V1 contract in the isolated worktree. Add automated schema and behavior tests covering valid pairing and submission flows, revoked pairing, expired nonce, nonce replay, duplicate idempotent submission, conflicting reuse of an idempotency key, malformed CMAI_CONTRIBUTION_CARD_V1 data, unauthorized scope, unknown protocol versions, hostile/oversized content, forbidden trust escalation, and unsafe audit metadata. Add broad negative tests proving that provider credential-like fields are rejected everywhere, including nested objects and unknown-field paths where applicable. Verify plugin-originated runs cannot claim fully_trusted, provider-verified, or equivalent status and that manual copy/paste cards still validate under their permitted provenance tier. Tests must be deterministic and run through the repository's normal local test command. Report any unresolved ambiguity rather than weakening validation. Do not deploy, publish, mutate provider auth, or run production operations."
+    },
+    {
+      "id": "t_4ce2bd27",
+      "type": "Historical",
+      "title": "Define the protocol state machine and invariants",
+      "status": "archived",
+      "priority": 0,
+      "assignee": "alex",
+      "skills": [],
+      "body": "In an isolated branch/worktree, inspect the repository conventions and write a runtime-neutral CMAI Agent Protocol specification covering pairing and device identity, revocation, scoped permissions, public challenge/feed payloads, run nonce issuance and expiry, submission lifecycle, idempotency, replay behavior, audit metadata, provenance tiers, redaction, and hostile-data handling. Define explicit state transitions, trust boundaries, field invariants, and the required error taxonomy, including revoked pairing, expired nonce, duplicate submission, malformed card, and unauthorized scope. Preserve manual copy/paste as a supported flow. Explicitly prohibit provider credentials in all messages and prohibit plugin or paired-adapter runs from claiming fully_trusted or provider-verified status. Deliver a concise contract document suitable for translating directly into strict schemas. Do not deploy, publish, alter provider authentication, or perform production mutations."
+    },
+    {
+      "id": "t_1b5b7762",
+      "type": "Historical",
+      "title": "Threat-model the agent protocol trust boundaries",
+      "status": "archived",
+      "priority": 0,
+      "assignee": "kitt",
+      "skills": [],
+      "body": "Perform a security-focused threat model for the proposed CMAI-to-local-runtime-adapter protocol. Treat challenge, feed, contribution, runtime, and adapter-supplied content as hostile data. Analyze pairing theft and revocation races, permission escalation, nonce replay, duplicate submission, provenance forgery, unsafe audit metadata, credential exfiltration, injection, oversized or malformed payloads, and redaction failures. Define required mitigations and security invariants, especially that no provider credential field is accepted and that plugin or paired local adapter runs cannot assert fully_trusted/provider-verified provenance. Produce actionable schema and test requirements, including negative cases and safe metadata allowlists. Work only in an isolated branch/worktree and perform no deployment, publishing, provider-auth changes, or production mutations."
+    },
+    {
+      "id": "t_b7d1c788",
+      "type": "Historical",
+      "title": "Implement versioned protocol schemas",
+      "status": "archived",
+      "priority": 0,
+      "assignee": "alex",
+      "skills": [],
+      "body": "Using the completed protocol specification and threat model, implement the minimum stable, runtime-neutral protocol as strict versioned request/response schemas in the repository's established schema technology. Include pairing/device identity and revocation, scoped client permissions, public challenge/feed payloads, run nonce and expiry, the CMAI_CONTRIBUTION_CARD_V1 submission envelope, idempotency and replay responses, safe runtime/adapter audit metadata, provenance tiers, redaction markers, and structured errors. Reject unknown or disallowed fields where supported, and ensure no schema accepts provider credentials or equivalent secrets. Encode provenance so self-submitted, paired local Agent adapter, and CMAI sandbox origins cannot improperly claim fully_trusted/provider-verified status. Include schema documentation and representative valid examples, including manual copy/paste. Use an isolated branch/worktree; do not deploy, publish, modify provider authentication, or make production mutations."
+    },
+    {
+      "id": "t_e106046e",
+      "type": "Historical",
+      "title": "Add protocol conformance and rejection tests",
+      "status": "archived",
+      "priority": 0,
+      "assignee": "alex",
+      "skills": [],
+      "body": "Add automated tests for every versioned protocol request and response schema. Cover valid pairing, permission, feed, nonce, submission, audit, provenance, and manual copy/paste flows. Add negative and boundary tests for revoked pairing, expired nonce, nonce replay, duplicate submission with deterministic idempotent behavior, malformed CMAI_CONTRIBUTION_CARD_V1 data, unauthorized scopes, unknown fields, hostile strings, unsafe audit metadata, invalid provenance claims, and every attempted provider-credential field or alias. Verify plugin and paired-adapter submissions cannot claim fully_trusted/provider-verified status. Tests must be deterministic, run through the repository's standard test command, and document any fixtures or generated artifacts. Work in the isolated feature branch/worktree only and perform no external or production mutation."
+    },
+    {
+      "id": "t_48583d28",
+      "type": "Historical",
+      "title": "Audit the implemented protocol for security gaps",
+      "status": "archived",
+      "priority": 0,
+      "assignee": "kitt",
+      "skills": [],
+      "body": "Review the implemented schemas and contract against the threat model. Attempt to identify schema confusion, downgrade paths, permissive unknown-field handling, credential-smuggling aliases, replay or idempotency ambiguity, revocation races, scope bypasses, provenance escalation, hostile-data injection, unsafe audit metadata, and insufficient redaction. Confirm that trust assertions are server-derived where required and that plugin or paired-adapter runs cannot become fully_trusted/provider-verified through submitted data. Record each finding with severity, reproduction payload, affected schema, and concrete remediation; explicitly state when no issue is found. This is an isolated review only: do not deploy, publish, alter provider authentication, or touch production systems."
+    },
+    {
+      "id": "t_ec75224d",
+      "type": "Historical",
+      "title": "Resolve findings and freeze protocol version one",
+      "status": "archived",
+      "priority": 0,
+      "assignee": "alex",
+      "skills": [],
+      "body": "Integrate the conformance-test results and security-audit findings into the isolated protocol branch/worktree. Fix all acceptance-blocking schema, documentation, or test issues; add regression tests for every confirmed security finding. Run the complete relevant test suite and verify that strict versioned schemas exist, no provider credential field or practical alias is accepted, plugin and paired-adapter runs cannot claim fully_trusted/provider-verified status, and required error codes cover revoked pairing, expired nonce, duplicate submission, malformed card, and unauthorized scope. Finalize the stable version-one contract and compatibility/versioning notes without deploying or publishing it. Do not modify provider authentication or perform production mutations; leave any release or merge requiring explicit Z/rkt approval clearly documented."
+    },
+    {
+      "id": "t_433f4488",
+      "type": "Support",
+      "title": "Define and implement the challenge semantics contract",
+      "status": "done",
+      "priority": 0,
+      "assignee": "alex",
+      "skills": [],
+      "body": "Inspect the existing challenge domain model and implement the canonical contract for challenge intent and closure semantics. Support exactly these intents: solve, decide, pressure_test, perspectives, debate, options, and audit. For each intent, define its required criteria and allowed successful outcomes; reject unknown intents, invalid intent/outcome combinations, and empty, missing, or structurally impossible criteria with clear machine-readable errors. Model requested perspectives, constraints, missing information, sensitivity, public eligibility, and a declarative reward posture. Reward fields must be inert declarations only: do not implement reservation, escrow, fees, unused-fund handling, or settlement. Make criteria and evidence—not activity volume or persuasive prose—the only basis for a successful status, and do not add autonomous challenge-state transitions. Establish explicit criteria length and collection bounds using existing project conventions. Add focused unit tests for the intent matrix, required fields, invalid combinations, and fail-closed behavior. Acceptance requires one authoritative, reusable semantic contract consumed by later storage and public-interface work."
+    },
+    {
+      "id": "t_5feb7b23",
+      "type": "Support",
+      "title": "Threat-model criteria intake and public challenge exposure",
+      "status": "done",
+      "priority": 0,
+      "assignee": "kitt",
+      "skills": [],
+      "body": "Perform a security and privacy review of the proposed challenge semantics and public intake/card/feed surfaces. Analyze hostile criteria content, oversized or resource-exhausting input, injection and unsafe rendering, accidental private-data publication, sensitivity/public-eligibility mismatches, legacy records with uncertain criteria, and attempts to manipulate solved status through prose or activity. Recommend concrete validation, normalization, storage, logging, and output-encoding controls, including safe length/count limits and fail-closed publication and decisive-closure rules. Explicitly verify that declarative reward posture cannot trigger financial operations and that no autonomous state transition is introduced. Deliver actionable findings with severity, affected surface, required mitigation, and security acceptance tests so implementation workers can apply them."
+    },
+    {
+      "id": "t_f34ee6b1",
+      "type": "Support",
+      "title": "Persist criteria versions and migrate legacy challenges",
+      "status": "done",
+      "priority": 0,
+      "assignee": "alex",
+      "skills": [],
+      "body": "Using the implemented semantic contract and security recommendations, update challenge persistence to store intent, intent-specific criteria, requested perspectives, constraints, missing information, sensitivity, public eligibility, and declarative reward posture. Once a challenge has received its first contribution, preserve every criteria change as immutable, ordered, versioned history with enough metadata to identify the active version and when each version became effective; do not rewrite historical contributions or silently evaluate them against later criteria. Map legacy records without confirmed criteria to an explicit criteria_unconfirmed condition. Such records must fail closed for any decisive or successful closure until criteria are explicitly confirmed through an authorized existing workflow. Ensure migration/default behavior is deterministic, idempotent, and does not infer success from prior activity or prose. Do not implement settlement or autonomous challenge-state changes. Add migration and repository/service tests covering legacy rows, repeat migration, post-contribution edits, history retrieval, and fail-closed closure checks."
+    },
+    {
+      "id": "t_a2f95e98",
+      "type": "Support",
+      "title": "Add validated public challenge intake endpoints",
+      "status": "done",
+      "priority": 0,
+      "assignee": "alex",
+      "skills": [],
+      "body": "Implement or update the public challenge intake and read interfaces to use the canonical semantics and persisted version model. Intake must accept the seven supported intents and the associated criteria, requested perspectives, constraints, missing-information declarations, sensitivity/public-eligibility settings, and declarative reward posture. Return clear field-level errors for missing, empty, impossible, oversized, or invalid values and for invalid intent/outcome pairs. Apply the security review's hostile-content and private-data controls; sensitive or ineligible records must fail closed rather than becoming public through defaults or legacy ambiguity. Public reads must expose the active criteria version and appropriate semantic fields without leaking private content or internal-only history metadata. Reward posture must remain descriptive and must not reserve funds, calculate fees, create escrow, settle funds, or trigger state changes. Add request/response and authorization tests for valid intake, malformed input, privacy boundaries, legacy criteria_unconfirmed records, and publication eligibility."
+    },
+    {
+      "id": "t_6dadedc7",
+      "type": "Support",
+      "title": "Render intent and criteria on public cards and feeds",
+      "status": "done",
+      "priority": 0,
+      "assignee": "alex",
+      "skills": [],
+      "body": "Update the public challenge card, detail/intake confirmation, and Agent feed presentation to render the canonical intent, active success or closure criteria, requested perspectives, constraints, declared missing information, public-safe sensitivity context, and declarative reward posture. Represent criteria_unconfirmed clearly and never present such a challenge as solved, decisively closed, or eligible for a decisive outcome. Render untrusted text safely, enforce display truncation or expansion behavior for bounded long criteria, and omit private or public-ineligible data. Use factual labels rather than persuasive status copy, and ensure contribution count, engagement, reward language, or prose cannot visually or programmatically manufacture solved status. Do not add settlement UI or autonomous state controls. Add component or view tests for every intent, long and hostile content, private/public eligibility, criteria_unconfirmed legacy records, and reward-posture rendering."
+    },
+    {
+      "id": "t_dda620cf",
+      "type": "Support",
+      "title": "Document and verify challenge semantics end to end",
+      "status": "done",
+      "priority": 0,
+      "assignee": "alex",
+      "skills": [],
+      "body": "Create the final developer and product documentation for challenge semantics and add end-to-end regression coverage across model validation, persistence, migration, public intake, cards, and feeds. Document the seven intents, each intent's required criteria and valid successful outcomes, criteria versioning after contributions begin, requested perspectives, constraints, missing information, sensitivity and public eligibility, declarative reward posture, and the criteria_unconfirmed legacy/default behavior. State explicitly that reward reservation, escrow, fees, unused funds, and settlement are out of scope and belong to Card 18, and that neither activity nor persuasive prose can establish solved status. Exercise empty, missing, impossible, oversized, hostile, and private-data cases; all invalid intent/outcome pairs; criteria edits before and after contributions; legacy migration; public redaction; and fail-closed decisive closure. Confirm no tested path performs financial operations or autonomous challenge-state changes."
+    }
+  ]
+}

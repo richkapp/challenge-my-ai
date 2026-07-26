@@ -1,0 +1,5 @@
+name: cmai-hermes
+version: 0.1.0
+description: Bounded Challenge My AI pairing and contribution adapter for Hermes.
+author: Challenge My AI
+kind: standalone

@@ -1,0 +1,76 @@
+{
+  "name": "challenge-my-ai",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
+  "bin": {
+    "cmai-blank-slate-runner": "./scripts/cmai-blank-slate-runner.ts"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "tsc --noEmit",
+    "typecheck": "tsc --noEmit",
+    "test": "NODE_ENV=test vitest run",
+    "test:watch": "NODE_ENV=test vitest",
+    "verify:ci": "env -u DATABASE_URL NODE_ENV=test CMAI_RUNTIME_ENV=test bun run lint && env -u DATABASE_URL NODE_ENV=test CMAI_RUNTIME_ENV=test bun run typecheck && env -u DATABASE_URL NODE_ENV=test CMAI_RUNTIME_ENV=test bun run test && env -u DATABASE_URL NODE_ENV=test CMAI_RUNTIME_ENV=test bun run build",
+    "verify:launch:local": "bun run smoke:live-challenge-loop && env -u DATABASE_URL NODE_ENV=test CMAI_RUNTIME_ENV=test CMAI_AUTH_MODE=test CMAI_STORE_DRIVER=local bun run smoke:agent-home-run && bun run smoke:local-http-challenge-loop",
+    "verify:launch:preflight": "CMAI_SMOKE_PREFLIGHT_ONLY=1 bun run smoke:production-challenge-loop -- ${CMAI_SMOKE_BASE_URL:-https://challenge-my-ai.vercel.app}",
+    "smoke:auth": "node scripts/smoke-auth.mjs",
+    "smoke:railway-sandbox": "bun scripts/smoke-railway-sandbox.ts",
+    "smoke:agent-home-run": "bun scripts/smoke-agent-home-run.ts",
+    "smoke:live-challenge-loop": "env -u DATABASE_URL NODE_ENV=test CMAI_RUNTIME_ENV=test CMAI_AUTH_MODE=test CMAI_STORE_DRIVER=local bun scripts/smoke-live-challenge-loop.ts",
+    "smoke:local-http-challenge-loop": "node scripts/smoke-local-http-challenge-loop.mjs",
+    "smoke:production-challenge-loop": "bun scripts/smoke-production-challenge-loop.ts",
+    "smoke:production-codex-reuse": "bun scripts/smoke-codex-reuse-production.ts",
+    "smoke:production-claude-code-reuse": "bun scripts/smoke-claude-code-reuse-production.ts",
+    "check:production-data": "bun scripts/check-production-data-readiness.ts",
+    "migrate:agent-protocol": "bun scripts/migrate-agent-protocol-state.ts",
+    "prove:agent-feed-postgres:disposable": "bash scripts/prove-agent-feed-postgres-disposable.sh",
+    "prove:agent-feed-postgres:failures": "python3 scripts/prove-agent-feed-postgres-disposable-failures.py",
+    "rollback:agent-protocol": "CMAI_AGENT_PROTOCOL_MIGRATION_ACTION=rollback bun scripts/migrate-agent-protocol-state.ts",
+    "smoke:cmai-runner": "bun scripts/cmai-blank-slate-runner.ts"
+  },
+  "dependencies": {
+    "@anthropic-ai/claude-code": "2.1.207",
+    "@openai/codex": "0.144.1",
+    "@supabase/ssr": "^0.12.0",
+    "@supabase/supabase-js": "^2.108.2",
+    "clsx": "latest",
+    "drizzle-orm": "latest",
+    "esbuild": "^0.28.1",
+    "lucide-react": "latest",
+    "nanoid": "latest",
+    "next": "latest",
+    "postgres": "^3.4.9",
+    "railway": "^3.4.1",
+    "react": "latest",
+    "react-dom": "latest",
+    "stripe": "^22.2.3",
+    "zod": "latest"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "latest",
+    "@testing-library/react": "latest",
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "@vitejs/plugin-react": "latest",
+    "autoprefixer": "latest",
+    "drizzle-kit": "^0.31.10",
+    "jsdom": "latest",
+    "postcss": "^8.5.15",
+    "tailwindcss": "^3.4.17",
+    "typescript": "latest",
+    "vitest": "latest"
+  },
+  "overrides": {
+    "postcss": "^8.5.15",
+    "esbuild": "^0.28.1"
+  }
+}

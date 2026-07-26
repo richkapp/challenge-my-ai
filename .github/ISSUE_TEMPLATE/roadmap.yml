@@ -1,0 +1,41 @@
+name: Roadmap task
+about: Claim or propose work for a roadmap card
+labels: [roadmap]
+body:
+  - type: input
+    id: card
+    attributes:
+      label: Roadmap card
+      description: Use the card number and title from docs/ROADMAP.md.
+      placeholder: "08 P0 — Build preview, submit, retry, and discard"
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Intended outcome
+      description: What concrete result will this issue produce?
+    validations:
+      required: true
+  - type: textarea
+    id: approach
+    attributes:
+      label: Proposed approach
+      description: Name the likely files, contracts, and verification path.
+    validations:
+      required: true
+  - type: textarea
+    id: risks
+    attributes:
+      label: Security, privacy, consent, or provider-cost risks
+    validations:
+      required: true
+  - type: checkboxes
+    id: boundaries
+    attributes:
+      label: Boundaries
+      options:
+        - label: I will not use production credentials or mutate production.
+          required: true
+        - label: I will preserve the two contribution actions and hostile-data boundary.
+          required: true
