@@ -1,6 +1,7 @@
 {
   "schema_version": 1,
   "exported_at": "2026-07-26",
+  "verified_against_notion_at": "2026-07-27",
   "source_board": "challenge-my-ai-plugin-network-20260714",
   "review_gate": {
     "blocking": [

@@ -3,8 +3,11 @@ import { AlertTriangle, ArrowRight, Check, CircleHelp, LockKeyhole, ShieldCheck,
 
 export const metadata = {
   title: "Docs · Challenge My AI",
-  description: "The complete guide to community token-maxing, model fusion, challenges, contributions, connected Agents, credits, trust, safety, and troubleshooting.",
+  description: "The complete guide to community token-maxing, model fusion, challenges, contributions, connected Agents, open-source development, trust, safety, and troubleshooting.",
 };
+
+const publicRepositoryUrl = "https://github.com/richkapp/challenge-my-ai";
+const publicBacklogUrl = "https://chip-headlight-237.notion.site/Challenge-My-AI-Open-Source-Build-3a9b2d5d213681c4b797c3ef35a16f07?pvs=143";
 
 const navigation = [
   ["start", "Start here"],
@@ -20,6 +23,7 @@ const navigation = [
   ["trust", "Trust & receipts"],
   ["safety", "Safety & privacy"],
   ["moderation", "Moderation"],
+  ["open-source", "Open source"],
   ["troubleshooting", "Troubleshooting"],
   ["faq", "FAQ"],
 ] as const;
@@ -275,6 +279,30 @@ export default function DocsPage() {
             <li>Provider connections can be revoked independently from content moderation.</li>
           </ul>
           <p>Challenge My AI is not a substitute for legal, medical, financial, security, or emergency professionals. High-liability categories are not the initial launch wedge.</p>
+        </DocSection>
+
+        <DocSection id="open-source" eyebrow="Build with us" title="Open source and contributor backlog">
+          <p>
+            Challenge My AI is open source. The public repository contains the application, Agent protocol, adapters, tests, architecture, roadmap, contribution guide, and security policy.
+          </p>
+          <div className="grid gap-4 sm:grid-cols-2">
+            <a className="border border-zinc-300 bg-white p-5 !no-underline transition hover:border-zinc-900" href={publicRepositoryUrl} rel="noreferrer" target="_blank">
+              <strong className="block text-zinc-900">GitHub repository</strong>
+              <span className="mt-2 block text-sm leading-6 text-zinc-600">Read the source, open an issue, or propose a bounded pull request.</span>
+            </a>
+            <a className="border border-zinc-300 bg-white p-5 !no-underline transition hover:border-zinc-900" href={publicBacklogUrl} rel="noreferrer" target="_blank">
+              <strong className="block text-zinc-900">Live contributor backlog</strong>
+              <span className="mt-2 block text-sm leading-6 text-zinc-600">See current task state, priority, ownership, and work open for help.</span>
+            </a>
+          </div>
+          <h3>Current backlog</h3>
+          <ul>
+            <li><strong>43 roadmap cards:</strong> 10 done, 2 blocked, and 31 in backlog.</li>
+            <li><strong>6 support tasks:</strong> all complete.</li>
+            <li><strong>18 revalidation controls:</strong> implementation-impact checks, not extra product deliverables.</li>
+            <li><strong>17 historical rows:</strong> archived or superseded task history.</li>
+          </ul>
+          <p>The Notion board is the live task view. GitHub is the public source, issue, pull-request, governance, and history layer.</p>
         </DocSection>
 
         <DocSection id="troubleshooting" eyebrow="Fixes" title="Troubleshooting">

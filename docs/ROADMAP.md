@@ -1,6 +1,6 @@
 # Public Roadmap
 
-This is the versioned public view of the actual Challenge My AI roadmap. The maintainer [Notion board](https://app.notion.com/p/3a9b2d5d213681c4b797c3ef35a16f07) contains the same roadmap plus generated controls and archived history.
+This is the versioned public view of the actual Challenge My AI roadmap. The public [Notion contributor backlog](https://chip-headlight-237.notion.site/Challenge-My-AI-Open-Source-Build-3a9b2d5d213681c4b797c3ef35a16f07?pvs=143) contains the same roadmap plus generated controls and archived history.
 
 ## The numbers
 

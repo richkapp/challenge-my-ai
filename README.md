@@ -83,14 +83,15 @@ The review gate passes at **0 validated Critical findings and 0 validated High f
 
 Start with:
 
+- [Notion board — Challenge My AI: Open Source Build](https://chip-headlight-237.notion.site/Challenge-My-AI-Open-Source-Build-3a9b2d5d213681c4b797c3ef35a16f07?pvs=143)
+- [GitHub issues](https://github.com/richkapp/challenge-my-ai/issues)
 - [Public roadmap](docs/ROADMAP.md)
 - [Current state](docs/CURRENT_STATE.md)
 - [Architecture](docs/ARCHITECTURE.md)
 - [Direction](docs/DIRECTION.md)
 - [Contributing](CONTRIBUTING.md)
-- [GitHub issues](https://github.com/richkapp/challenge-my-ai/issues)
 
-Maintainer workspace: [Challenge My AI — Open Source Build](https://app.notion.com/p/3a9b2d5d213681c4b797c3ef35a16f07). The versioned roadmap and GitHub issues remain the public fallback if the Notion workspace asks for access.
+The public Notion board is the live contributor backlog. It currently contains 43 roadmap cards, 6 completed support tasks, 18 revalidation controls, and 17 archived historical rows. The versioned roadmap and GitHub issues remain available in this repository.
 
 The live product currently exists at <https://challenge-my-ai.vercel.app>, but this repository should not be treated as proof that every production integration or trusted-run path is enabled.
 

@@ -23,11 +23,18 @@ describe("comprehensive product documentation", () => {
     expect(html).toContain("Troubleshooting");
     expect(html).toContain("Frequently asked questions");
     expect(html).toContain("Private and deep modes are not live");
+    expect(html).toContain('id="open-source"');
+    expect(html).toContain("Open source and contributor backlog");
+    expect(html).toContain('href="https://github.com/richkapp/challenge-my-ai"');
+    expect(html).toContain("chip-headlight-237.notion.site/Challenge-My-AI-Open-Source-Build");
+    expect(html).toContain("43 roadmap cards:");
+    expect(html).toContain("10 done, 2 blocked, and 31 in backlog");
   });
 
   it("ships precise docs metadata", () => {
     expect(metadata.title).toBe("Docs · Challenge My AI");
     expect(metadata.description).toContain("community token-maxing");
+    expect(metadata.description).toContain("open-source development");
     expect(metadata.description).toContain("troubleshooting");
   });
 });
