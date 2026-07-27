@@ -57,8 +57,8 @@ Requirements:
 - Node.js 22.22.3+ for the OpenClaw adapter toolchain
 
 ```bash
-git clone https://github.com/richkapp/challenge-my-ai-open-source.git
-cd challenge-my-ai-open-source
+git clone https://github.com/richkapp/challenge-my-ai.git
+cd challenge-my-ai
 bun install
 bun run dev
 ```
@@ -88,7 +88,7 @@ Start with:
 - [Architecture](docs/ARCHITECTURE.md)
 - [Direction](docs/DIRECTION.md)
 - [Contributing](CONTRIBUTING.md)
-- [GitHub issues](https://github.com/richkapp/challenge-my-ai-open-source/issues)
+- [GitHub issues](https://github.com/richkapp/challenge-my-ai/issues)
 
 Maintainer workspace: [Challenge My AI — Open Source Build](https://app.notion.com/p/3a9b2d5d213681c4b797c3ef35a16f07). The versioned roadmap and GitHub issues remain the public fallback if the Notion workspace asks for access.
 

@@ -4,7 +4,7 @@
 
 Do not open a public issue for a vulnerability, credential exposure, authorization bypass, privacy leak, payment flaw, sandbox escape, or provider-account risk.
 
-Use a [private GitHub security advisory](https://github.com/richkapp/challenge-my-ai-open-source/security/advisories/new). Include:
+Use a [private GitHub security advisory](https://github.com/richkapp/challenge-my-ai/security/advisories/new). Include:
 
 - affected route/package/commit;
 - impact and realistic attack path;
